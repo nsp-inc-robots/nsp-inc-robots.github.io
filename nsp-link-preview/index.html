@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NSP Link Preview - Browse without limits</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/lang-manager.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <style>
-        body {
-            font-family: 'Outfit', 'Inter', sans-serif;
-        }
-
         .feature-list {
             display: grid;
             grid-template-columns: 1fr;
@@ -53,12 +50,17 @@
 
 <body>
     <div class="bg-gradient"></div>
-    <div class="blob" style="top: -100px; right: -100px;"></div>
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="jp">JP</button>
+    </div>
 
     <div class="container">
         <header style="margin-bottom: 40px;">
-            <a href="../index.html" style="text-decoration: none; color: var(--text-secondary); font-weight: 600;">←
-                Back to NSP inc.</a>
+            <a href="../index.html" style="text-decoration: none; color: var(--text-secondary); font-weight: 600;">
+                <span lang-en>← Back to NSP inc.</span>
+                <span lang-jp>← NSP inc. トップへ戻る</span>
+            </a>
         </header>
 
         <div class="hero" style="text-align: left;">
@@ -66,55 +68,68 @@
                 style="font-size: 14px; color: var(--accent-primary); font-weight: 700; margin-bottom: 12px; text-transform: uppercase;">
                 Premium Chrome Extension</div>
             <h1>NSP Link Preview</h1>
-            <p class="subtitle">Instantly preview any link with a simple Alt+Click. Keep your focus on what matters
-                most.</p>
+            <p class="subtitle" lang-en>Instantly preview any link with a simple Alt+Click. Keep your focus on what
+                matters most.</p>
+            <p class="subtitle" lang-jp>Alt+クリックで、リンク先を瞬時にプレビュー。今見ているページの集中を途切れさせません。</p>
         </div>
 
         <div class="glass-card" style="margin-bottom: 40px;">
-            <h2 style="margin-bottom: 20px;">Why NSP Link Preview?</h2>
+            <h2 style="margin-bottom: 20px;" lang-en>Why NSP Link Preview?</h2>
+            <h2 style="margin-bottom: 20px;" lang-jp>NSP リンクプレビューを選ぶ理由</h2>
+
             <ul class="feature-list">
                 <li class="feature-item">
                     <div class="feature-icon">✓</div>
                     <div>
-                        <strong>Seamless Experience:</strong> Open any link in a small, mobile-optimized popup without
-                        leaving your current tab.
+                        <strong lang-en>Seamless Experience:</strong><strong lang-jp>シームレスな体験:</strong>
+                        <p lang-en>Open any link in a small, mobile-optimized popup without leaving your current tab.
+                        </p>
+                        <p lang-jp>現在のタブを離れることなく、リンク先をモバイル最適化されたポップアップで表示します。</p>
                     </div>
                 </li>
                 <li class="feature-item">
                     <div class="feature-icon">✓</div>
                     <div>
-                        <strong>Smart Navigation:</strong> Decide whether to keep or discard your preview when
-                        navigating between pages.
+                        <strong lang-en>Smart Navigation:</strong><strong lang-jp>スマートなナビゲーション:</strong>
+                        <p lang-en>Decide whether to keep or discard your preview when navigating between pages.</p>
+                        <p lang-jp>ページを移動する際、プレビューを閉じるか維持するかを自由に選択できます。</p>
                     </div>
                 </li>
                 <li class="feature-item">
                     <div class="feature-icon">✓</div>
                     <div>
-                        <strong>Highly Customizable:</strong> Drag, resize, and position the preview anywhere on your
-                        screen.
-                    </div>
-                </li>
-                <li class="feature-item">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <strong>Privacy First:</strong> No tracking, no data collection. Just a clean, fast preview
-                        tool.
+                        <strong lang-en>Highly Customizable:</strong><strong lang-jp>自由なカスタマイズ:</strong>
+                        <p lang-en>Drag, resize, and position the preview anywhere on your screen.</p>
+                        <p lang-jp>プレビューウィンドウのサイズ変更、位置調整、ドラッグが自由自在です。</p>
                     </div>
                 </li>
             </ul>
         </div>
 
         <div class="glass-card cta-box">
-            <h2 style="margin-bottom: 10px;">Upgrade to Pro Today</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;">Get unlimited daily previews and support the
-                ongoing development of NSP inc. tools.</p>
+            <h2 style="margin-bottom: 10px;" lang-en>Upgrade to Pro Today</h2>
+            <h2 style="margin-bottom: 10px;" lang-jp>今すぐPro版へアップグレード</h2>
+
+            <p style="color: var(--text-secondary); margin-bottom: 30px;" lang-en>Get unlimited daily previews and
+                support the ongoing development of NSP inc. tools.</p>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;" lang-jp>毎日のプレビュー制限を解除し、NSP inc.
+                の継続的な開発をサポートしましょう。</p>
+
             <div style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">$5.00 <span
-                    style="font-size: 16px; font-weight: 400; color: var(--text-secondary);">One-time Lifetime
-                    Access</span></div>
+                    style="font-size: 16px; font-weight: 400; color: var(--text-secondary);" lang-en>One-time Lifetime
+                    Access</span><span style="font-size: 16px; font-weight: 400; color: var(--text-secondary);"
+                    lang-jp>買い切りプレミアムアクセス</span></div>
+
             <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy" class="btn btn-primary"
-                style="font-size: 18px; padding: 16px 48px;">Unlock Pro Lifetime</a>
-            <p style="margin-top: 20px; font-size: 12px; color: var(--text-secondary);">Secure checkout powered by
-                Polar.sh. Instant license key delivery via email.</p>
+                style="font-size: 18px; padding: 16px 48px;">
+                <span lang-en>Unlock Pro Lifetime</span>
+                <span lang-jp>Pro版を今すぐ入手</span>
+            </a>
+
+            <p style="margin-top: 20px; font-size: 12px; color: var(--text-secondary);" lang-en>Secure checkout powered
+                by Polar.sh. Instant license key delivery via email.</p>
+            <p style="margin-top: 20px; font-size: 12px; color: var(--text-secondary);" lang-jp>Polar.sh
+                による安全な決済。ライセンスキーは購入後すぐにメールで届きます。</p>
         </div>
 
         <footer style="margin-top: 80px;">

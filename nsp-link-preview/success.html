@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You! - NSP inc.</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/lang-manager.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <style>
-        body {
-            font-family: 'Outfit', 'Inter', sans-serif;
-        }
-
         .step-list {
             text-align: left;
             margin: 40px 0;
@@ -59,51 +56,67 @@
 
 <body>
     <div class="bg-gradient"></div>
-    <div class="blob"
-        style="top: -100px; right: -100px; background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);">
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="jp">JP</button>
     </div>
 
     <div class="container" style="text-align: center;">
         <div style="font-size: 60px; margin-bottom: 20px;">🎉</div>
-        <h1>Thank You for your Purchase!</h1>
-        <p class="subtitle">Your order is complete. We've sent your license key to your email address.</p>
+
+        <h1 lang-en>Thank You for your Purchase!</h1>
+        <h1 lang-jp>ご購入ありがとうございます！</h1>
+
+        <p class="subtitle" lang-en>Your order is complete. We've sent your license key to your email address.</p>
+        <p class="subtitle" lang-jp>決済が完了しました。ライセンスキーをお客様のメールアドレスにお送りしました。</p>
 
         <div class="glass-card" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="margin-bottom: 30px; font-size: 24px;">How to activate Pro</h2>
+            <h2 style="margin-bottom: 30px; font-size: 24px;" lang-en>How to activate Pro</h2>
+            <h2 style="margin-bottom: 30px; font-size: 24px;" lang-jp>Pro版の有効化手順</h2>
 
             <div class="step-list">
                 <div class="step-item">
                     <div class="step-num">1</div>
                     <div class="step-content">
-                        <strong>Check your Email</strong>
-                        <p>Polar.sh has sent you an email with your unique license key (starts with 'NSP-'). Copy that
-                            key.</p>
+                        <strong lang-en>Check your Email</strong>
+                        <strong lang-jp>メールを確認する</strong>
+                        <p lang-en>Polar.sh has sent you an email with your unique license key (starts with 'NSP-').
+                            Copy that key.</p>
+                        <p lang-jp>Polar.sh から、'NSP-' で始まる専用ライセンスキーがメールで届きます。そのキーをコピーしてください。</p>
                     </div>
                 </div>
 
                 <div class="step-item">
                     <div class="step-num">2</div>
+                    <div class="step-num">2</div>
                     <div class="step-content">
-                        <strong>Open Extension Popup</strong>
-                        <p>Click the NSP Link Preview icon in your Chrome toolbar to open the settings menu.</p>
+                        <strong lang-en>Open Extension Popup</strong>
+                        <strong lang-jp>拡張機能を開く</strong>
+                        <p lang-en>Click the NSP Link Preview icon in your Chrome toolbar to open the settings menu.</p>
+                        <p lang-jp>Chrome ツールバーにある NSP Link Preview のアイコンをクリックして設定を開きます。</p>
                     </div>
                 </div>
 
                 <div class="step-item">
                     <div class="step-num">3</div>
                     <div class="step-content">
-                        <strong>Enter Key & Unlock</strong>
-                        <p>Paste your key into the "Enter License Key" field and click <strong>Unlock Pro</strong>. You
-                            are all set!</p>
+                        <strong lang-en>Enter Key & Unlock</strong>
+                        <strong lang-jp>キーを入力して解除</strong>
+                        <p lang-en>Paste your key into the "Enter License Key" field and click <strong>Unlock
+                                Pro</strong>. You are all set!</p>
+                        <p lang-jp>"Enter License Key" 欄にキーを貼り付け、<strong>Unlock Pro</strong> をクリックして完了です！</p>
                     </div>
                 </div>
             </div>
 
-            <a href="../index.html" class="btn btn-primary">Back to Home</a>
+            <a href="../index.html" class="btn btn-primary" lang-en>Back to Home</a>
+            <a href="../index.html" class="btn btn-primary" lang-jp>ホームへ戻る</a>
         </div>
 
         <footer style="margin-top: 80px;">
-            <p>Need help? Contact support at <a href="mailto:naoya310708@gmail.com"
+            <p lang-en>Need help? Contact support at <a href="mailto:naoya310708@gmail.com"
+                    style="color: var(--accent-primary);">naoya310708@gmail.com</a></p>
+            <p lang-jp>お困りですか？サポートはこちら: <a href="mailto:naoya310708@gmail.com"
                     style="color: var(--accent-primary);">naoya310708@gmail.com</a></p>
             <p style="margin-top: 10px;">&copy; 2026 NSP inc. All rights reserved.</p>
         </footer>
