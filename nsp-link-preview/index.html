@@ -10,8 +10,8 @@
   <script src="../assets/lang-manager.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
 
   <style>
     /* ---- Product Hero ---- */
@@ -20,7 +20,9 @@
     }
 
     /* ---- Feature List ---- */
-    .feature-list { list-style: none; }
+    .feature-list {
+      list-style: none;
+    }
 
     .feature-row {
       display: grid;
@@ -31,7 +33,9 @@
       align-items: start;
     }
 
-    .feature-row:first-child { border-top: 1px solid var(--border); }
+    .feature-row:first-child {
+      border-top: 1px solid var(--border);
+    }
 
     .feature-num {
       font-size: 10px;
@@ -112,10 +116,69 @@
       background: var(--dim);
     }
 
+    /* ---- Image Placeholders ---- */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--border);
+      border: 1px dashed var(--border-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dim);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 24px;
+      border-radius: 4px;
+    }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .use-case-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .use-case-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .use-case-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    @media (max-width: 960px) {
+      .use-case-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
     @media (max-width: 640px) {
-      .product-hero { padding-top: calc(var(--header-h) + 52px); padding-bottom: 56px; }
-      .pricing-box { padding: 48px 24px; }
-      .feature-row { padding: 32px 0; gap: 0 16px; grid-template-columns: 40px 1fr; }
+      .product-hero {
+        padding-top: calc(var(--header-h) + 52px);
+        padding-bottom: 56px;
+      }
+
+      .pricing-box {
+        padding: 48px 24px;
+      }
+
+      .feature-row {
+        padding: 32px 0;
+        gap: 0 16px;
+        grid-template-columns: 40px 1fr;
+      }
     }
   </style>
 </head>
@@ -131,8 +194,10 @@
         <a href="../index.html#products" class="nav-link" lang-jp>プロダクト一覧</a>
         <a href="../index.html#services" class="nav-link" lang-en>Services</a>
         <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="nav-link" lang-en>Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="nav-link" lang-jp>お問い合わせ</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-en>Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-jp>お問い合わせ</a>
       </nav>
       <div class="lang-switcher">
         <button class="lang-btn" data-lang="en">EN</button>
@@ -147,22 +212,22 @@
       <p class="section-eyebrow" lang-en>Chrome Extension &middot; Premium</p>
       <p class="section-eyebrow" lang-jp>Chrome拡張機能 &middot; プレミアム</p>
 
-      <h1 class="display-text">NSP Link<br>Preview</h1>
+      <h1 class="display-text" lang-en>Escape the Tab Clutter.</h1>
+      <h1 class="display-text" lang-jp>タブ移動のストレスから、<br>あなたを解放する。</h1>
 
       <p class="lead-text" lang-en>
-        Hold Alt and click any link to preview it in a mobile-optimized popup —
-        without leaving your current page. Stay focused. Browse smarter.
+        NSP Link Preview is a premium extension that eliminates the "to click or not to click" dilemma.
+        Instantly preview any link without losing your place.
       </p>
       <p class="lead-text" lang-jp>
-        Altを押しながらリンクをクリックするだけで、現在のページを離れることなく
-        モバイル最適化されたポップアップでリンク先を確認。集中を維持したまま、
-        スマートにブラウジングできます。
+        NSP リンクプレビューは、リンクを「開くか、開かないか」を迷う時間をゼロにする、プレミアムなエクステンションです。
+        現在のページを維持したまま、中身を瞬時に確認できます。
       </p>
 
-      <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy"
-        class="btn btn-white" lang-en>Get Pro for $5 &rarr;</a>
-      <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy"
-        class="btn btn-white" lang-jp>$5でPro版を入手 &rarr;</a>
+      <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy" class="btn btn-white"
+        lang-en>Get Pro for $5 &rarr;</a>
+      <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy" class="btn btn-white"
+        lang-jp>$5でPro版を入手 &rarr;</a>
     </div>
   </section>
 
@@ -181,14 +246,14 @@
           <span class="feature-num">01</span>
           <div>
             <p class="feature-title" lang-en>Instant Link Preview</p>
-            <p class="feature-title" lang-jp>瞬時のリンクプレビュー</p>
+            <p class="feature-title" lang-jp>インスタント・プレビュー</p>
             <p class="feature-desc" lang-en>
-              Hold Alt and click any link to open a mobile-optimized preview popup right on your screen.
-              No new tabs, no page navigation — just instant content from any link.
+              Instead of opening a link in a new tab, display a preview window directly on the current page.
+              Efficiency boosted: Check content without interrupting your flow.
             </p>
             <p class="feature-desc" lang-jp>
-              Altを押しながらリンクをクリックするだけで、モバイル最適化されたプレビューが
-              画面上に表示されます。新しいタブも不要、ページ移動も不要です。
+              リンクを新しいタブで開く代わりに、現在のページ上に直接プレビューウィンドウを表示します。
+              今読んでいる記事を中断することなく、中身をサクッと確認できます。
             </p>
           </div>
         </li>
@@ -196,15 +261,15 @@
         <li class="feature-row">
           <span class="feature-num">02</span>
           <div>
-            <p class="feature-title" lang-en>Smart Navigation Control</p>
-            <p class="feature-title" lang-jp>スマートなナビゲーション制御</p>
+            <p class="feature-title" lang-en>Intuitive Activation (Customizable)</p>
+            <p class="feature-title" lang-jp>直感的な起動方法（カスタマイズ可能）</p>
             <p class="feature-desc" lang-en>
-              When you navigate away, choose to keep the preview open or close it automatically.
-              Your browsing flow stays completely uninterrupted.
+              Supports activation by Alt / Ctrl / Shift + Click, or simply hovering over the link.
+              Choose the style that fits your workflow for instant confirmation.
             </p>
             <p class="feature-desc" lang-jp>
-              ページを移動する際、プレビューを維持するか自動的に閉じるかを選択できます。
-              ブラウジングのフローを一切妨げません。
+              Alt / Ctrl / Shift キーを押しながらのクリックや、リンクにマウスを乗せるだけ（ホバー）の起動に対応。
+              自分のスタイルに合わせた「一瞬の確認」を実現します。
             </p>
           </div>
         </li>
@@ -212,15 +277,31 @@
         <li class="feature-row">
           <span class="feature-num">03</span>
           <div>
-            <p class="feature-title" lang-en>Fully Customizable Window</p>
-            <p class="feature-title" lang-jp>自由なウィンドウカスタマイズ</p>
+            <p class="feature-title" lang-en>Premium Multi-Window</p>
+            <p class="feature-title" lang-jp>プレミアム・マルチウィンドウ</p>
             <p class="feature-desc" lang-en>
-              Drag, resize, and reposition the preview popup anywhere on your screen.
-              Adapts to your workflow — not the other way around.
+              Pin preview windows to keep them fixed, or adjust sizes (Small, Medium, Large) freely.
+              Open multiple previews for effortless side-by-side comparison.
             </p>
             <p class="feature-desc" lang-jp>
-              プレビューウィンドウはドラッグ・リサイズ・移動が自由自在。
-              あなたのワークフローに合わせて柔軟にカスタマイズできます。
+              プレビューウィンドウは、好きな場所にピン留めして固定したり、サイズ（小・中・大）を自由に調整したりできます。
+              複数のプレビューを並べて比較することも可能です。
+            </p>
+          </div>
+        </li>
+
+        <li class="feature-row">
+          <span class="feature-num">04</span>
+          <div>
+            <p class="feature-title" lang-en>Immersive Design</p>
+            <p class="feature-title" lang-jp>没入感を高めるデザイン</p>
+            <p class="feature-desc" lang-en>
+              Featuring the signature NSP series dark theme and glassmorphism UI.
+              Adjustable opacity (0.8–1.0) ensures a perfect balance between the preview and the main page.
+            </p>
+            <p class="feature-desc" lang-jp>
+              NSPシリーズ特有の、高級感あふれるダークテーマとグラスモルフィズムUIを採用。
+              不透明度の調整（0.8〜1.0）により、元のページとの視認性を両立させます。
             </p>
           </div>
         </li>
@@ -229,11 +310,110 @@
     </div>
   </section>
 
-  <!-- ===== PRICING ===== -->
+  <!-- ===== USE CASES ===== -->
   <section class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-num">02</span>
+        <span class="section-label" lang-en>Use Cases</span>
+        <span class="section-label" lang-jp>利用シーン</span>
+      </div>
+
+      <div class="use-case-grid">
+        <div class="use-case-item">
+          <p class="use-case-title" lang-en>Search & SNS</p>
+          <p class="use-case-title" lang-jp>Google検索やSNSで</p>
+          <p class="use-case-desc" lang-en>
+            Check search results or social media links without leaving your timeline.
+            Stay focused on your original search.
+          </p>
+          <p class="use-case-desc" lang-jp>
+            検索結果やSNSのタイムラインから離れずに、リンク先の内容を素早くチェック。
+            元の探索フローを維持できます。
+          </p>
+          <div class="img-placeholder">Image: Search Preview</div>
+        </div>
+
+        <div class="use-case-item">
+          <p class="use-case-title" lang-en>Reading Documentation</p>
+          <p class="use-case-title" lang-jp>ドキュメント閲覧中に</p>
+          <p class="use-case-desc" lang-en>
+            Open references or related links in a small window while continuing to read the main document.
+          </p>
+          <p class="use-case-desc" lang-jp>
+            参考文献や関連リンクを小窓で開きながら、元の文書を読み進めることができます。
+          </p>
+          <div class="img-placeholder">Image: Documentation Preview</div>
+        </div>
+
+        <div class="use-case-item">
+          <p class="use-case-title" lang-en>Shopping Comparison</p>
+          <p class="use-case-title" lang-jp>ショッピング比較</p>
+          <p class="use-case-desc" lang-en>
+            Compare product details side-by-side without opening dozens of tabs.
+            Smarter shopping decisions made easy.
+          </p>
+          <p class="use-case-desc" lang-jp>
+            商品詳細を別のタブで開かず、プレビューで並べて比較検討。
+            効率的な買い物をサポートします。
+          </p>
+          <div class="img-placeholder">Image: Product Comparison</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SETTINGS & PRIVACY ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-label" lang-en>Settings & Privacy</span>
+        <span class="section-label" lang-jp>設定とプライバシー</span>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item">
+          <h2 class="service-name" lang-en>Side Panel Control</h2>
+          <h2 class="service-name" lang-jp>サイドパネル設定</h2>
+          <p class="service-desc" lang-en>
+            Adjust behavior settings seamlessly from the standard Chrome Side Panel anytime.
+          </p>
+          <p class="service-desc" lang-jp>
+            Chrome標準のサイドパネルから、動作設定をいつでもシームレスに変更可能です。
+          </p>
+        </div>
+
+        <div class="service-item">
+          <h2 class="service-name" lang-en>Blacklist Feature</h2>
+          <h2 class="service-name" lang-jp>ブラックリスト機能</h2>
+          <p class="service-desc" lang-en>
+            Easily exclude specific sites where you don't want the preview to trigger.
+          </p>
+          <p class="service-desc" lang-jp>
+            プレビューを動かしたくない特定のサイトを簡単に除外設定できます。
+          </p>
+        </div>
+
+        <div class="service-item">
+          <h2 class="service-name" lang-en>Safe by Design</h2>
+          <h2 class="service-name" lang-jp>安心の設計</h2>
+          <p class="service-desc" lang-en>
+            No annoying ads or trackers. Purely focused on enhancing your browsing experience.
+          </p>
+          <p class="service-desc" lang-jp>
+            余計な広告や追跡はなく、ブラウジング体験を純粋に強化することに特化しています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">04</span>
         <span class="section-label" lang-en>Pricing</span>
         <span class="section-label" lang-jp>価格</span>
       </div>
@@ -247,15 +427,29 @@
         <p class="pricing-note" lang-en>One-time payment &mdash; no subscriptions, no renewals.</p>
         <p class="pricing-note" lang-jp>一回限りの支払い。サブスクなし、更新費用なし。永久ライセンス。</p>
 
-        <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy"
-          class="btn btn-white"
+        <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy" class="btn btn-white"
           style="font-size: 16px; padding: 15px 44px;">
           <span lang-en>Unlock Pro Lifetime &rarr;</span>
           <span lang-jp>Pro版を今すぐ入手 &rarr;</span>
         </a>
 
-        <p class="free-tier" lang-en>Free tier includes 5 previews per day</p>
-        <p class="free-tier" lang-jp>無料プランは1日5回のプレビューが利用可能</p>
+        <div
+          style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
+          <div class="glass-card" style="padding: 24px; border: 1px solid var(--border);">
+            <strong lang-en>Free Tier</strong>
+            <strong lang-jp>無料版</strong>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-en>Explore basic features with 5
+              previews per day.</p>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-jp>1日5回までプレビュー可能。基本機能をすべて体験できます。</p>
+          </div>
+          <div class="glass-card" style="padding: 24px; border: 1px solid var(--white); background: rgba(0,0,0,0.02);">
+            <strong lang-en>Pro Tier</strong>
+            <strong lang-jp>Pro版</strong>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-en>Unleash full productivity with
+              unlimited previews.</p>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-jp>回数制限なしの無制限プレビュー。生産性を最大化します。</p>
+          </div>
+        </div>
 
         <p class="pricing-security" lang-en>
           Secure checkout by Polar.sh &nbsp;&middot;&nbsp; License key delivered instantly via email
@@ -278,4 +472,5 @@
   </footer>
 
 </body>
+
 </html>
