@@ -1,8 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const langBtns = document.querySelectorAll('.lang-btn');
-    const currentLang = localStorage.getItem('nsp-lang') || 'en';
 
-    // 初期言語の設定
+    // Detect browser language and default to Japanese if applicable
+    const savedLang = localStorage.getItem('nsp-lang');
+    let defaultLang = 'en';
+    if (!savedLang) {
+        const browserLang = navigator.language || '';
+        if (browserLang.startsWith('ja') || browserLang.startsWith('jp')) {
+            defaultLang = 'jp';
+        }
+    }
+    const currentLang = savedLang || defaultLang;
+
     updateLang(currentLang);
 
     langBtns.forEach(btn => {
@@ -16,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('lang', lang);
         localStorage.setItem('nsp-lang', lang);
 
-        // ボタンのactive表示を更新
         document.querySelectorAll('.lang-btn').forEach(b => {
             if (b.getAttribute('data-lang') === lang) {
                 b.classList.add('active');
