@@ -2,76 +2,254 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSP inc. - High-Quality Digital Products</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/lang-manager.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSP inc. — Digital Products &amp; Consulting</title>
+  <meta name="description" content="Chrome extensions, WordPress plugins, AI consulting and branding services.">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/lang-manager.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 
 <body>
-    <div class="bg-gradient"></div>
-    <div class="blob" style="top: -100px; right: -100px;"></div>
 
-    <div class="lang-switcher">
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="site-logo">NSP inc.</a>
+      <nav class="site-nav">
+        <a href="#products" class="nav-link" lang-en>Products</a>
+        <a href="#products" class="nav-link" lang-jp>プロダクト</a>
+        <a href="#services" class="nav-link" lang-en>Services</a>
+        <a href="#services" class="nav-link" lang-jp>サービス</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="nav-link" lang-en>Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="nav-link" lang-jp>お問い合わせ</a>
+      </nav>
+      <div class="lang-switcher">
         <button class="lang-btn" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="jp">JP</button>
+      </div>
     </div>
+  </header>
 
+  <!-- ===== HERO ===== -->
+  <section class="hero-section">
     <div class="container">
-        <header style="margin-bottom: 80px;">
-            <div style="font-size: 24px; font-weight: 800; color: #fff; letter-spacing: 2px;">NSP inc.</div>
-        </header>
+      <p class="section-eyebrow" lang-en>Software &middot; AI &middot; Branding</p>
+      <p class="section-eyebrow" lang-jp>ソフトウェア &middot; AI &middot; ブランディング</p>
 
-        <section class="hero" style="text-align: center;">
-            <h1 lang-en>Accelerate your browsing <br>and productivity.</h1>
-            <h1 lang-jp>ブラウジングと生産性を、<br>もっと速く、快適に。</h1>
+      <h1 class="display-text">
+        <span lang-en>Digital products<br>built to last.</span>
+        <span lang-jp>長く使える<br>デジタルプロダクト。</span>
+      </h1>
 
-            <p class="subtitle" lang-en>We create powerful tools for developers, creators, and daily internet users to
-                make digital life smoother and more efficient.</p>
-            <p class="subtitle" lang-jp>開発者、クリエイター、そしてすべてのインターネットユーザーのために。デジタルライフをよりスムーズで効率的にする強力なツールを提供します。</p>
-        </section>
+      <p class="lead-text" lang-en>
+        We build Chrome extensions and WordPress plugins, and provide
+        AI &amp; branding consulting for businesses that want to move faster and look sharper.
+      </p>
+      <p class="lead-text" lang-jp>
+        Chrome拡張機能・WordPressプラグインの開発、AIコンサルティング、ブランディングを通じて、
+        事業の成長と競争力強化を支援します。
+      </p>
 
-        <div class="product-grid">
-            <!-- NSP Link Preview -->
-            <a href="nsp-link-preview/index.html" class="glass-card product-card">
-                <div
-                    style="font-size: 12px; color: var(--accent-primary); font-weight: 700; margin-bottom: 8px; text-transform: uppercase;">
-                    Chrome Extension</div>
+      <a href="#products" class="text-link" lang-en>See our products &rarr;</a>
+      <a href="#products" class="text-link" lang-jp>プロダクトを見る &rarr;</a>
+    </div>
+  </section>
 
-                <h3 lang-en>NSP Link Preview</h3>
-                <h3 lang-jp>NSP リンクプレビュー</h3>
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="marquee-item">Chrome Extensions</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">WordPress Plugins</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">AI Consulting</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Branding</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Software Development</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Product Strategy</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Visual Identity</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Automation</span>
+        <span class="marquee-sep">&middot;</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">Chrome Extensions</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">WordPress Plugins</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">AI Consulting</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Branding</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Software Development</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Product Strategy</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Visual Identity</span>
+        <span class="marquee-sep">&middot;</span>
+        <span class="marquee-item">Automation</span>
+        <span class="marquee-sep">&middot;</span>
+      </div>
+    </div>
+  </div>
 
-                <p lang-en>Preview any link instantly in a mobile-optimized popup. No more context switching or tab
-                    clutter.</p>
-                <p lang-jp>リンクをその場でプレビュー。タブを増やすことなく、モバイル最適化されたウィンドウで内容を即座に確認できます。</p>
+  <!-- ===== SERVICES ===== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-label" lang-en>What we do</span>
+        <span class="section-label" lang-jp>事業内容</span>
+      </div>
 
-                <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
-                    <span style="font-size: 14px; font-weight: 600; color: #fff;" lang-en>View Details →</span>
-                    <span style="font-size: 14px; font-weight: 600; color: #fff;" lang-jp>詳しく見る →</span>
-                </div>
-            </a>
+      <div class="services-grid">
 
-            <!-- Placeholder for future product -->
-            <div class="glass-card" style="opacity: 0.5; cursor: default;">
-                <div
-                    style="font-size: 12px; color: var(--text-secondary); font-weight: 700; margin-bottom: 8px; text-transform: uppercase;">
-                    WordPress Plugin</div>
-                <h3 lang-en>Coming Soon</h3>
-                <h3 lang-jp>近日公開</h3>
-                <p lang-en>A powerful new way to manage your WordPress content. Optimized for speed and security.</p>
-                <p lang-jp>WordPressコンテンツ管理を強力にサポート。スピードとセキュリティに特化した次世代のプラグインです。</p>
-            </div>
+        <div class="service-item">
+          <p class="service-category" lang-en>Software Development</p>
+          <p class="service-category" lang-jp>ソフトウェア開発</p>
+          <h2 class="service-name" lang-en>Chrome Extensions<br>&amp; WordPress Plugins</h2>
+          <h2 class="service-name" lang-jp>Chrome拡張機能<br>&amp; WPプラグイン</h2>
+          <p class="service-desc" lang-en>
+            High-quality browser extensions and WordPress plugins built for real-world performance,
+            security, and usability. From idea to published product, we handle it all.
+          </p>
+          <p class="service-desc" lang-jp>
+            パフォーマンス・セキュリティ・実用性を徹底的に追求したブラウザ拡張機能と
+            WordPressプラグインを開発します。アイデアから公開まで一貫して対応します。
+          </p>
         </div>
 
-        <footer>
-            <p>&copy; 2026 NSP inc. All rights reserved.</p>
-        </footer>
-    </div>
-</body>
+        <div class="service-item">
+          <p class="service-category" lang-en>Consulting</p>
+          <p class="service-category" lang-jp>コンサルティング</p>
+          <h2 class="service-name" lang-en>AI Integration<br>&amp; Strategy</h2>
+          <h2 class="service-name" lang-jp>AI活用支援<br>&amp; 戦略策定</h2>
+          <p class="service-desc" lang-en>
+            Strategy and hands-on implementation for AI-powered workflows.
+            Prompt engineering, model selection, and full product integration
+            for modern businesses ready to move faster.
+          </p>
+          <p class="service-desc" lang-jp>
+            プロンプトエンジニアリングからプロダクト統合まで、AI活用の戦略立案と実装を
+            一括支援します。業務効率の大幅な改善を実現します。
+          </p>
+        </div>
 
+        <div class="service-item">
+          <p class="service-category" lang-en>Consulting</p>
+          <p class="service-category" lang-jp>コンサルティング</p>
+          <h2 class="service-name" lang-en>Branding &amp;<br>Visual Identity</h2>
+          <h2 class="service-name" lang-jp>ブランディング<br>&amp; ビジュアル設計</h2>
+          <p class="service-desc" lang-en>
+            Logo design, visual systems, and brand strategy for modern digital businesses.
+            Build a clear, memorable identity that communicates trust and expertise.
+          </p>
+          <p class="service-desc" lang-jp>
+            ロゴ・ビジュアルシステム・ブランド戦略を通じて、信頼と専門性を伝える
+            記憶に残るブランドアイデンティティを構築します。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-label" lang-en>Our products</span>
+        <span class="section-label" lang-jp>プロダクト</span>
+      </div>
+
+      <div class="products-grid">
+
+        <a href="nsp-link-preview/index.html" class="product-card">
+          <p class="product-badge" lang-en>Chrome Extension</p>
+          <p class="product-badge" lang-jp>Chrome拡張機能</p>
+          <h3 class="product-name">NSP Link Preview</h3>
+          <p class="product-desc" lang-en>
+            Preview any link instantly with Alt+Click in a mobile-optimized popup.
+            No context switching, no tab clutter. Stay focused.
+          </p>
+          <p class="product-desc" lang-jp>
+            Alt+クリックで、リンク先をその場でプレビュー。タブを増やさず、
+            集中を途切れさせずにブラウジングできます。
+          </p>
+          <div class="product-footer">
+            <span class="product-price">$5</span>
+            <span class="product-price-note" lang-en>One-time purchase</span>
+            <span class="product-price-note" lang-jp>買い切り</span>
+            <span class="product-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <div class="product-card product-card--dim">
+          <p class="product-badge" lang-en>WordPress Plugin</p>
+          <p class="product-badge" lang-jp>WordPressプラグイン</p>
+          <h3 class="product-name" lang-en>Coming Soon</h3>
+          <h3 class="product-name" lang-jp>近日公開</h3>
+          <p class="product-desc" lang-en>
+            A new way to manage WordPress content. Built for speed, security,
+            and a better developer experience.
+          </p>
+          <p class="product-desc" lang-jp>
+            WordPressコンテンツ管理の新しい形。スピードとセキュリティに
+            特化した次世代プラグインです。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-label" lang-en>Work with us</span>
+        <span class="section-label" lang-jp>お問い合わせ</span>
+      </div>
+
+      <h2 class="cta-heading" lang-en>Have a project in mind?</h2>
+      <h2 class="cta-heading" lang-jp>プロジェクトのご相談はこちら</h2>
+
+      <p class="cta-sub" lang-en>
+        Whether it's a custom tool, AI integration, or brand strategy —
+        let's build something great together.
+      </p>
+      <p class="cta-sub" lang-jp>
+        カスタムツール開発・AI統合・ブランド戦略など、
+        お気軽にご連絡ください。
+      </p>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="btn btn-outline" target="_blank" rel="noopener">
+        <span lang-en>Open contact form &rarr;</span>
+        <span lang-jp>お問い合わせフォームを開く &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="site-logo">NSP inc.</span>
+        <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>

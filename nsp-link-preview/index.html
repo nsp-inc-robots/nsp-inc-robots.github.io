@@ -2,140 +2,280 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSP Link Preview - Browse without limits</title>
-    <link rel="stylesheet" href="../assets/style.css">
-    <script src="../assets/lang-manager.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <style>
-        .feature-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            list-style: none;
-            margin: 40px 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSP Link Preview — Chrome Extension</title>
+  <meta name="description" content="Preview any link with Alt+Click. Browse smarter without losing your place.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/lang-manager.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
 
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
+  <style>
+    /* ---- Product Hero ---- */
+    .product-hero {
+      padding: calc(var(--header-h) + 88px) 0 88px;
+    }
 
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
+    /* ---- Feature List ---- */
+    .feature-list { list-style: none; }
 
-        .cta-box {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px;
-            border: 2px solid var(--accent-primary);
-            background: rgba(99, 102, 241, 0.05);
-        }
-    </style>
+    .feature-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 28px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .feature-row:first-child { border-top: 1px solid var(--border); }
+
+    .feature-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+      padding-top: 5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.78;
+      max-width: 640px;
+    }
+
+    /* ---- Pricing ---- */
+    .pricing-box {
+      border: 1px solid var(--border);
+      padding: 72px 60px;
+      text-align: center;
+    }
+
+    .pricing-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .pricing-amount {
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .pricing-note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .pricing-security {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .free-tier {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    .free-tier::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--dim);
+    }
+
+    @media (max-width: 640px) {
+      .product-hero { padding-top: calc(var(--header-h) + 52px); padding-bottom: 56px; }
+      .pricing-box { padding: 48px 24px; }
+      .feature-row { padding: 32px 0; gap: 0 16px; grid-template-columns: 40px 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="bg-gradient"></div>
-    <div class="lang-switcher">
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">NSP inc.</a>
+      <nav class="site-nav">
+        <a href="../index.html#products" class="nav-link" lang-en>All Products</a>
+        <a href="../index.html#products" class="nav-link" lang-jp>プロダクト一覧</a>
+        <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+        <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="nav-link" lang-en>Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform" class="nav-link" lang-jp>お問い合わせ</a>
+      </nav>
+      <div class="lang-switcher">
         <button class="lang-btn" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="jp">JP</button>
+      </div>
     </div>
+  </header>
 
+  <!-- ===== PRODUCT HERO ===== -->
+  <section class="product-hero">
     <div class="container">
-        <header style="margin-bottom: 40px;">
-            <a href="../index.html" style="text-decoration: none; color: var(--text-secondary); font-weight: 600;">
-                <span lang-en>← Back to NSP inc.</span>
-                <span lang-jp>← NSP inc. トップへ戻る</span>
-            </a>
-        </header>
+      <p class="section-eyebrow" lang-en>Chrome Extension &middot; Premium</p>
+      <p class="section-eyebrow" lang-jp>Chrome拡張機能 &middot; プレミアム</p>
 
-        <div class="hero" style="text-align: left;">
-            <div
-                style="font-size: 14px; color: var(--accent-primary); font-weight: 700; margin-bottom: 12px; text-transform: uppercase;">
-                Premium Chrome Extension</div>
-            <h1>NSP Link Preview</h1>
-            <p class="subtitle" lang-en>Instantly preview any link with a simple Alt+Click. Keep your focus on what
-                matters most.</p>
-            <p class="subtitle" lang-jp>Alt+クリックで、リンク先を瞬時にプレビュー。今見ているページの集中を途切れさせません。</p>
-        </div>
+      <h1 class="display-text">NSP Link<br>Preview</h1>
 
-        <div class="glass-card" style="margin-bottom: 40px;">
-            <h2 style="margin-bottom: 20px;" lang-en>Why NSP Link Preview?</h2>
-            <h2 style="margin-bottom: 20px;" lang-jp>NSP リンクプレビューを選ぶ理由</h2>
+      <p class="lead-text" lang-en>
+        Hold Alt and click any link to preview it in a mobile-optimized popup —
+        without leaving your current page. Stay focused. Browse smarter.
+      </p>
+      <p class="lead-text" lang-jp>
+        Altを押しながらリンクをクリックするだけで、現在のページを離れることなく
+        モバイル最適化されたポップアップでリンク先を確認。集中を維持したまま、
+        スマートにブラウジングできます。
+      </p>
 
-            <ul class="feature-list">
-                <li class="feature-item">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <strong lang-en>Seamless Experience:</strong><strong lang-jp>シームレスな体験:</strong>
-                        <p lang-en>Open any link in a small, mobile-optimized popup without leaving your current tab.
-                        </p>
-                        <p lang-jp>現在のタブを離れることなく、リンク先をモバイル最適化されたポップアップで表示します。</p>
-                    </div>
-                </li>
-                <li class="feature-item">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <strong lang-en>Smart Navigation:</strong><strong lang-jp>スマートなナビゲーション:</strong>
-                        <p lang-en>Decide whether to keep or discard your preview when navigating between pages.</p>
-                        <p lang-jp>ページを移動する際、プレビューを閉じるか維持するかを自由に選択できます。</p>
-                    </div>
-                </li>
-                <li class="feature-item">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <strong lang-en>Highly Customizable:</strong><strong lang-jp>自由なカスタマイズ:</strong>
-                        <p lang-en>Drag, resize, and position the preview anywhere on your screen.</p>
-                        <p lang-jp>プレビューウィンドウのサイズ変更、位置調整、ドラッグが自由自在です。</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="glass-card cta-box">
-            <h2 style="margin-bottom: 10px;" lang-en>Upgrade to Pro Today</h2>
-            <h2 style="margin-bottom: 10px;" lang-jp>今すぐPro版へアップグレード</h2>
-
-            <p style="color: var(--text-secondary); margin-bottom: 30px;" lang-en>Get unlimited daily previews and
-                support the ongoing development of NSP inc. tools.</p>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;" lang-jp>毎日のプレビュー制限を解除し、NSP inc.
-                の継続的な開発をサポートしましょう。</p>
-
-            <div style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">$5.00 <span
-                    style="font-size: 16px; font-weight: 400; color: var(--text-secondary);" lang-en>One-time Lifetime
-                    Access</span><span style="font-size: 16px; font-weight: 400; color: var(--text-secondary);"
-                    lang-jp>買い切りプレミアムアクセス</span></div>
-
-            <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy" class="btn btn-primary"
-                style="font-size: 18px; padding: 16px 48px;">
-                <span lang-en>Unlock Pro Lifetime</span>
-                <span lang-jp>Pro版を今すぐ入手</span>
-            </a>
-
-            <p style="margin-top: 20px; font-size: 12px; color: var(--text-secondary);" lang-en>Secure checkout powered
-                by Polar.sh. Instant license key delivery via email.</p>
-            <p style="margin-top: 20px; font-size: 12px; color: var(--text-secondary);" lang-jp>Polar.sh
-                による安全な決済。ライセンスキーは購入後すぐにメールで届きます。</p>
-        </div>
-
-        <footer style="margin-top: 80px;">
-            <p>&copy; 2026 NSP inc. All rights reserved.</p>
-        </footer>
+      <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy"
+        class="btn btn-white" lang-en>Get Pro for $5 &rarr;</a>
+      <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy"
+        class="btn btn-white" lang-jp>$5でPro版を入手 &rarr;</a>
     </div>
-</body>
+  </section>
 
+  <!-- ===== FEATURES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-label" lang-en>Features</span>
+        <span class="section-label" lang-jp>機能</span>
+      </div>
+
+      <ul class="feature-list">
+
+        <li class="feature-row">
+          <span class="feature-num">01</span>
+          <div>
+            <p class="feature-title" lang-en>Instant Link Preview</p>
+            <p class="feature-title" lang-jp>瞬時のリンクプレビュー</p>
+            <p class="feature-desc" lang-en>
+              Hold Alt and click any link to open a mobile-optimized preview popup right on your screen.
+              No new tabs, no page navigation — just instant content from any link.
+            </p>
+            <p class="feature-desc" lang-jp>
+              Altを押しながらリンクをクリックするだけで、モバイル最適化されたプレビューが
+              画面上に表示されます。新しいタブも不要、ページ移動も不要です。
+            </p>
+          </div>
+        </li>
+
+        <li class="feature-row">
+          <span class="feature-num">02</span>
+          <div>
+            <p class="feature-title" lang-en>Smart Navigation Control</p>
+            <p class="feature-title" lang-jp>スマートなナビゲーション制御</p>
+            <p class="feature-desc" lang-en>
+              When you navigate away, choose to keep the preview open or close it automatically.
+              Your browsing flow stays completely uninterrupted.
+            </p>
+            <p class="feature-desc" lang-jp>
+              ページを移動する際、プレビューを維持するか自動的に閉じるかを選択できます。
+              ブラウジングのフローを一切妨げません。
+            </p>
+          </div>
+        </li>
+
+        <li class="feature-row">
+          <span class="feature-num">03</span>
+          <div>
+            <p class="feature-title" lang-en>Fully Customizable Window</p>
+            <p class="feature-title" lang-jp>自由なウィンドウカスタマイズ</p>
+            <p class="feature-desc" lang-en>
+              Drag, resize, and reposition the preview popup anywhere on your screen.
+              Adapts to your workflow — not the other way around.
+            </p>
+            <p class="feature-desc" lang-jp>
+              プレビューウィンドウはドラッグ・リサイズ・移動が自由自在。
+              あなたのワークフローに合わせて柔軟にカスタマイズできます。
+            </p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-label" lang-en>Pricing</span>
+        <span class="section-label" lang-jp>価格</span>
+      </div>
+
+      <div class="pricing-box">
+        <p class="pricing-label" lang-en>Lifetime Pro Access</p>
+        <p class="pricing-label" lang-jp>買い切りProアクセス</p>
+
+        <p class="pricing-amount">$5</p>
+
+        <p class="pricing-note" lang-en>One-time payment &mdash; no subscriptions, no renewals.</p>
+        <p class="pricing-note" lang-jp>一回限りの支払い。サブスクなし、更新費用なし。永久ライセンス。</p>
+
+        <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy"
+          class="btn btn-white"
+          style="font-size: 16px; padding: 15px 44px;">
+          <span lang-en>Unlock Pro Lifetime &rarr;</span>
+          <span lang-jp>Pro版を今すぐ入手 &rarr;</span>
+        </a>
+
+        <p class="free-tier" lang-en>Free tier includes 5 previews per day</p>
+        <p class="free-tier" lang-jp>無料プランは1日5回のプレビューが利用可能</p>
+
+        <p class="pricing-security" lang-en>
+          Secure checkout by Polar.sh &nbsp;&middot;&nbsp; License key delivered instantly via email
+        </p>
+        <p class="pricing-security" lang-jp>
+          Polar.sh による安全な決済 &nbsp;&middot;&nbsp; ライセンスキーはメールで即座にお届け
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+        <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
