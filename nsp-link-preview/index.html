@@ -15,14 +15,20 @@
 
   <style>
     /* ---- Carousel ---- */
-    .carousel-container {
+    .carousel-section {
       position: relative;
       margin-top: 48px;
-      padding-bottom: 40px;
-      overflow: hidden;
+      padding-bottom: 100px;
+      /* Space for thumbnails */
+    }
+
+    .carousel-container {
+      position: relative;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: #000;
+      overflow: hidden;
+      /* Only hide slide overflow */
     }
 
     .carousel-track {
@@ -47,16 +53,11 @@
     }
 
     .carousel-nav {
-      position: absolute;
-      bottom: -60px;
-      /* Adjust for thumbnails */
-      left: 0;
-      width: 100%;
-      transform: none;
+      margin-top: 24px;
+      /* Space between carousel and thumbnails */
       display: flex;
       justify-content: center;
       gap: 12px;
-      z-index: 10;
     }
 
     .thumbnail-item {
@@ -107,7 +108,7 @@
       font-size: 24px;
       font-weight: bold;
       transition: all 0.3s ease;
-      z-index: 20;
+      z-index: 10;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
@@ -127,6 +128,10 @@
     @media (max-width: 640px) {
       .carousel-btn {
         display: none;
+      }
+
+      .thumbnail-item {
+        width: 60px;
       }
     }
 
@@ -617,28 +622,31 @@
         lang-jp>$5でPro版を入手 &rarr;</a>
 
       <!-- Carousel Section -->
-      <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide">
-            <img src="../assets/nsp-link-preview/ss1.png" alt="NSP Link Preview Screenshot 1" class="carousel-img">
+      <div class="carousel-section">
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss1.png" alt="NSP Link Preview Screenshot 1" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss2.png" alt="NSP Link Preview Screenshot 2" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss3.png" alt="NSP Link Preview Screenshot 3" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss4.png" alt="NSP Link Preview Screenshot 4" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss5.png" alt="NSP Link Preview Screenshot 5" class="carousel-img">
+            </div>
           </div>
-          <div class="carousel-slide">
-            <img src="../assets/nsp-link-preview/ss2.png" alt="NSP Link Preview Screenshot 2" class="carousel-img">
-          </div>
-          <div class="carousel-slide">
-            <img src="../assets/nsp-link-preview/ss3.png" alt="NSP Link Preview Screenshot 3" class="carousel-img">
-          </div>
-          <div class="carousel-slide">
-            <img src="../assets/nsp-link-preview/ss4.png" alt="NSP Link Preview Screenshot 4" class="carousel-img">
-          </div>
-          <div class="carousel-slide">
-            <img src="../assets/nsp-link-preview/ss5.png" alt="NSP Link Preview Screenshot 5" class="carousel-img">
-          </div>
+
+          <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&larr;</button>
+          <button class="carousel-btn next" id="nextBtn" aria-label="Next">&rarr;</button>
         </div>
 
-        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&larr;</button>
-        <button class="carousel-btn next" id="nextBtn" aria-label="Next">&rarr;</button>
-
+        <!-- Thumbnails Outside -->
         <div class="carousel-nav" id="carouselNav">
           <div class="thumbnail-item active" data-index="0">
             <img src="../assets/nsp-link-preview/ss1.png" alt="Thumb 1" class="thumbnail-img">
