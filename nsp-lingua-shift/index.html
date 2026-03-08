@@ -656,6 +656,38 @@
         </div>
     </footer>
 
+    <script>
+        // Carousel Logic
+        const track = document.getElementById('carouselTrack');
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            if (index < 0) index = thumbnails.length - 1;
+            if (index >= thumbnails.length) index = 0;
+
+            currentIndex = index;
+            if (track) {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const index = parseInt(thumb.getAttribute('data-index'));
+                updateCarousel(index);
+            });
+        });
+    </script>
 </body>
 
 </html>
