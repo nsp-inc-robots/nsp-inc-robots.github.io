@@ -50,6 +50,11 @@ body {
   }
 }
 
+.container--full {
+  max-width: 100%;
+  padding: 0 40px;
+}
+
 /* ----- Header ----- */
 .site-header {
   position: fixed;
@@ -170,7 +175,6 @@ body {
 .lead-text {
   font-size: 1.05rem;
   color: var(--muted);
-  max-width: 520px;
   line-height: 1.9;
   margin-bottom: 52px;
 }
@@ -417,7 +421,6 @@ body {
   line-height: 1.2;
   color: var(--white);
   margin-bottom: 20px;
-  max-width: 560px;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -425,7 +428,6 @@ body {
 .cta-sub {
   font-size: 1rem;
   color: var(--muted);
-  max-width: 460px;
   line-height: 1.9;
   margin-bottom: 44px;
 }
