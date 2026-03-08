@@ -149,13 +149,19 @@ body {
 }
 
 /* ----- Display Text ----- */
-.display-text {
+.display-text,
+.display-text--hero {
   font-size: clamp(1.2rem, 7.5vw, 8.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.95;
   color: var(--white);
   margin-bottom: 32px;
+}
+
+.display-text--hero div {
+  width: max-content;
+  max-width: 100%;
 }
 
 /* ----- Lead / Body Text ----- */
