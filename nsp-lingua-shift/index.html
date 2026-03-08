@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSP LinguaShift — 普段のウェブ閲覧を、最高の「語学学習」に変える</title>
+    <meta name="description" content="普段読んでいるウェブサイトの一部を英語や韓国語に自動置換。日本語話者のための新感覚言語学習アシスタント。">
+    <link rel="icon" href="../assets/nsp-lingua-shift/icon128.png" type="image/png">
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/lang-manager.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+
+    <style>
+        /* ---- Product Hero ---- */
+        .product-hero {
+            padding: calc(var(--header-h) + 120px) 0 88px;
+        }
+
+        .display-text--hero {
+            font-size: clamp(2.5rem, 6vw, 4.2rem) !important;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            word-break: keep-all;
+        }
+
+        /* ---- Carousel ---- */
+        .carousel-section {
+            position: relative;
+            margin-top: 48px;
+            padding-bottom: 100px;
+            /* Space for thumbnails */
+        }
+
+        .carousel-container {
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #000;
+            overflow: hidden;
+            /* Only hide slide overflow */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            width: 100%;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .carousel-nav {
+            margin-top: 24px;
+            /* Space between carousel and thumbnails */
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .thumbnail-item {
+            width: 80px;
+            aspect-ratio: 16 / 9;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            background: #000;
+        }
+
+        .thumbnail-item:hover {
+            opacity: 0.8;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .thumbnail-item.active {
+            opacity: 1;
+            border-color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffffff !important;
+            /* Force white base */
+            border: none !important;
+            color: #000000 !important;
+            /* Force black arrow */
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-btn:hover {
+            background: #f8f8f8;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 24px;
+        }
+
+        .carousel-btn.next {
+            right: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .carousel-btn {
+                display: none;
+            }
+
+            .thumbnail-item {
+                width: 60px;
+            }
+        }
+
+        /* ---- Feature List ---- */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 0 28px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .feature-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .feature-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--dim);
+            padding-top: 5px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.78;
+            max-width: 640px;
+        }
+
+        /* ---- Pricing ---- */
+        .pricing-box {
+            border: 1px solid var(--border);
+            padding: 72px 60px;
+            text-align: center;
+        }
+
+        .pricing-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .pricing-note {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
+
+        .pricing-security {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--dim);
+        }
+
+        /* ---- Browser Mockup Component ---- */
+        .browser-frame {
+            margin-top: 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            user-select: none;
+        }
+
+        .bf-bar {
+            background: #e8e8e8;
+            padding: 7px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .bf-dots {
+            display: flex;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .bf-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .bf-dot-r {
+            background: #ff5f57;
+        }
+
+        .bf-dot-y {
+            background: #febc2e;
+        }
+
+        .bf-dot-g {
+            background: #28c840;
+        }
+
+        .bf-url {
+            flex: 1;
+            background: #fff;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 10px;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bf-body {
+            padding: 16px 20px;
+            background: #fafafa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* LinguaShift Mockup */
+        .ls-text {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .ls-replaced {
+            background: linear-gradient(120deg, rgba(168, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border-bottom: 2px solid #a855f7;
+            color: #a855f7;
+            font-weight: 600;
+            padding: 0 2px;
+            border-radius: 2px;
+            cursor: help;
+        }
+
+        .ls-replaced--ko {
+            border-bottom-color: #ec4899;
+            color: #ec4899;
+        }
+
+        .ls-tooltip {
+            position: absolute;
+            top: 45px;
+            left: 30px;
+            background: #111;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .ls-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 12px;
+            width: 8px;
+            height: 8px;
+            background: #111;
+            transform: rotate(45deg);
+        }
+
+        .ls-tooltip-orig {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 9px;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 960px) {
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="site-logo">NSP inc.</a>
+            <nav class="site-nav">
+                <a href="../index.html#products" class="nav-link" lang-en>All Products</a>
+                <a href="../index.html#products" class="nav-link" lang-jp>プロダクト一覧</a>
+                <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+                <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+                    class="nav-link" lang-en>Contact</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+                    class="nav-link" lang-jp>お問い合わせ</a>
+            </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="jp">JP</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== PRODUCT HERO ===== -->
+    <section class="product-hero">
+        <div class="container">
+            <p class="section-eyebrow" lang-en>Chrome Extension &middot; Language Learning</p>
+            <p class="section-eyebrow" lang-jp>Chrome拡張機能 &middot; 言語学習</p>
+
+            <img src="../assets/nsp-lingua-shift/icon128.png" alt="NSP LinguaShift Icon"
+                style="width: 80px; height: 80px; margin-bottom: 32px; border-radius: 20px;">
+
+            <h1 class="display-text--hero" lang-en>Don't Study. Just Browse.</h1>
+            <h1 class="display-text--hero" lang-jp style="line-height: 1.2;">
+                <div>「勉強する時間」を、</div>
+                <div>「ウェブを見る時間」に変える。</div>
+            </h1>
+
+            <p class="lead-text" lang-en>
+                NSP LinguaShift automatically replaces parts of the websites you already read with English or Korean.
+                Learn
+                vocabulary naturally without opening a textbook.
+            </p>
+            <p class="lead-text" lang-jp>
+                NSP LinguaShift は、普段読んでいるウェブサイトの一部を自動的に英語や韓国語へ置換します。
+                単語帳を開くことなく、ブラウジングを通じて自然に語彙を習得できる、日本語話者のための学習アシスタントです。
+            </p>
+
+            <a href="#" class="btn btn-white" lang-en>Add to Chrome — It's Free &rarr;</a>
+            <a href="#" class="btn btn-white" lang-jp>Chromeに追加（無料） &rarr;</a>
+
+            <!-- Carousel Section -->
+            <div class="carousel-section">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <img src="../assets/nsp-lingua-shift/ss1.png" alt="NSP LinguaShift Screenshot 1"
+                                class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/nsp-lingua-shift/ss2.png" alt="NSP LinguaShift Screenshot 2"
+                                class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/nsp-lingua-shift/ss3.png" alt="NSP LinguaShift Screenshot 3"
+                                class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/nsp-lingua-shift/ss4.png" alt="NSP LinguaShift Screenshot 4"
+                                class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/nsp-lingua-shift/ss5.png" alt="NSP LinguaShift Screenshot 5"
+                                class="carousel-img">
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&larr;</button>
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Next">&rarr;</button>
+                </div>
+
+                <!-- Thumbnails Outside -->
+                <div class="carousel-nav" id="carouselNav">
+                    <div class="thumbnail-item active" data-index="0">
+                        <img src="../assets/nsp-lingua-shift/ss1.png" alt="Thumb 1" class="thumbnail-img">
+                    </div>
+                    <div class="thumbnail-item" data-index="1">
+                        <img src="../assets/nsp-lingua-shift/ss2.png" alt="Thumb 2" class="thumbnail-img">
+                    </div>
+                    <div class="thumbnail-item" data-index="2">
+                        <img src="../assets/nsp-lingua-shift/ss3.png" alt="Thumb 3" class="thumbnail-img">
+                    </div>
+                    <div class="thumbnail-item" data-index="3">
+                        <img src="../assets/nsp-lingua-shift/ss4.png" alt="Thumb 4" class="thumbnail-img">
+                    </div>
+                    <div class="thumbnail-item" data-index="4">
+                        <img src="../assets/nsp-lingua-shift/ss5.png" alt="Thumb 5" class="thumbnail-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Browser Mockup -->
+            <div class="browser-frame"
+                style="max-width: 800px; margin-left: auto; margin-right: auto; margin-top: 60px; display: none;">
+                <div class="bf-bar">
+                    <div class="bf-dots">
+                        <div class="bf-dot bf-dot-r"></div>
+                        <div class="bf-dot bf-dot-y"></div>
+                        <div class="bf-dot bf-dot-g"></div>
+                    </div>
+                    <div class="bf-url">https://news.example.com/tech/apple-event</div>
+                </div>
+                <div class="bf-body">
+                    <div class="ls-text">
+                        今年のAppleイベントでは、新しい <span class="ls-replaced">Smartphone</span> が発表されました。
+                        この <span class="ls-replaced">Innovation</span> は、私たちの生活を大きく変えることになるでしょう。
+                        デザインはより洗練され、<span class="ls-replaced">Performance</span> も大幅に向上しています。
+                    </div>
+                    <div class="ls-tooltip">
+                        <strong>Innovaton</strong>
+                        <span class="ls-tooltip-orig">元の単語: 革新</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <span class="section-label" lang-en>Features</span>
+                <span class="section-label" lang-jp>機能の特徴</span>
+            </div>
+
+            <ul class="feature-list">
+                <li class="feature-row">
+                    <span class="feature-num">01</span>
+                    <div>
+                        <p class="feature-title" lang-en>Intelligent Morphological Analysis</p>
+                        <p class="feature-title" lang-jp>高度な日本語解析エンジン</p>
+                        <p class="feature-desc" lang-en>
+                            Powered by Kuromoji, LinguaShift understands the structure of Japanese sentences to replace
+                            only the most
+                            effective words for learning.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            高度な形態素解析エンジン（Kuromoji）を搭載。文脈を理解し、学習効果の高い最適な位置で単語を置換します。単なるランダムな置換とは一線を画す体験を提供します。
+                        </p>
+                    </div>
+                </li>
+
+                <li class="feature-row">
+                    <span class="feature-num">02</span>
+                    <div>
+                        <p class="feature-title" lang-en>English & Korean Dual Support</p>
+                        <p class="feature-title" lang-jp>英語・韓国語のダブル対応</p>
+                        <p class="feature-desc" lang-en>
+                            Learn the world's most essential business language or dive into Hangeul for your favorite
+                            K-Dramas. Switch
+                            languages with a single tap.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            ビジネスや受験に必須の「英語」と、ドラマや旅行をさらに楽しむための「韓国語」の両方に対応。ハングルの読み書きも日常の中で自然に身につきます。
+                        </p>
+                    </div>
+                </li>
+
+                <li class="feature-row">
+                    <span class="feature-num">03</span>
+                    <div>
+                        <p class="feature-title" lang-en>Adjustable Learning Intensity</p>
+                        <p class="feature-title" lang-jp>調整可能な置換レベル</p>
+                        <p class="feature-desc" lang-en>
+                            From a subtle 10% (Beginner) to an immersive 80% (Advanced). Scale the difficulty as you
+                            grow your
+                            vocabulary.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            10%（初心者）から80%（上級者）まで、置換頻度を自由自在に調整。自分の成長に合わせて学習の「強度」を変えられるグラデーション学習が可能です。
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== USE CASES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <span class="section-label" lang-en>Use Cases</span>
+                <span class="section-label" lang-jp>シチュエーション</span>
+            </div>
+
+            <div class="use-case-grid">
+                <div class="use-case-item">
+                    <p class="use-case-title" lang-en>Daily News & Blogs</p>
+                    <p class="use-case-title" lang-jp>日々のニュースチェックで</p>
+                    <p class="use-case-desc" lang-en>
+                        Turn your morning news routine into a productive learning session. Get exposed to real-world
+                        terms used by
+                        professionals.
+                    </p>
+                    <p class="use-case-desc" lang-jp>
+                        毎朝のニュースやブログを読む時間を、そのまま語彙力アップの時間に。専門家が使う実践的な用語に、文脈の中で触れることができます。
+                    </p>
+                    <div class="browser-frame">
+                        <div class="bf-bar">
+                            <div class="bf-dots">
+                                <div class="bf-dot bf-dot-r"></div>
+                                <div class="bf-dot bf-dot-y"></div>
+                                <div class="bf-dot bf-dot-g"></div>
+                            </div>
+                            <div class="bf-url">nikkei.com/article/...</div>
+                        </div>
+                        <div class="bf-body">
+                            <div class="ls-text">
+                                市場の <span class="ls-replaced">Volatility</span> が高まっており、投資家は慎重な <span
+                                    class="ls-replaced">Strategy</span> を求めています。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-item">
+                    <p class="use-case-title" lang-en>Korean Culture Immersion</p>
+                    <p class="use-case-title" lang-jp>韓国文化への没入学習</p>
+                    <p class="use-case-desc" lang-en>
+                        Learn Hangeul words while reading about K-POP or Korean trends. Move beyond subtitles and
+                        understand the
+                        words directly.
+                    </p>
+                    <p class="use-case-desc" lang-jp>
+                        K-POPやトレンド記事を読みながら、ハングル単語を習得。字幕なしでドラマや歌詞を理解するための第一歩を、日常の中で踏み出せます。
+                    </p>
+                    <div class="browser-frame">
+                        <div class="bf-bar">
+                            <div class="bf-dots">
+                                <div class="bf-dot bf-dot-r"></div>
+                                <div class="bf-dot bf-dot-y"></div>
+                                <div class="bf-dot bf-dot-g"></div>
+                            </div>
+                            <div class="bf-url">k-star-news.com/article/...</div>
+                        </div>
+                        <div class="bf-body">
+                            <div class="ls-text">
+                                最新の <span class="ls-replaced ls-replaced--ko">노래 (歌)</span> は世界中で大ヒットし、多くの <span
+                                    class="ls-replaced ls-replaced--ko">사람 (人)</span> を魅了しています。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COST ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <span class="section-label" lang-en>Pricing</span>
+                <span class="section-label" lang-jp>価格</span>
+            </div>
+
+            <div class="pricing-box">
+                <p class="pricing-label" lang-en>Free to Use</p>
+                <p class="pricing-label" lang-jp>完全無料</p>
+                <p class="pricing-amount">Free</p>
+                <p class="pricing-note" lang-en>NSP LinguaShift is a completely free tool dedicated to supporting your
+                    language learning journey.</p>
+                <p class="pricing-note" lang-jp>NSP LinguaShift は、あなたの言語学習を支援するために開発された完全無料のツールです。すべての機能を制限なく利用できます。</p>
+
+                <a href="#" class="btn btn-white" style="font-size: 16px; padding: 15px 44px;">
+                    <span lang-en>Add to Chrome &rarr;</span>
+                    <span lang-jp>Chromeに無料で追加 &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+                <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
