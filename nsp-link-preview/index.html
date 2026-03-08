@@ -19,6 +19,33 @@
       padding: calc(var(--header-h) + 88px) 0 88px;
     }
 
+    /* ---- Gallery ---- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--border);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--white);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ---- Feature List ---- */
     .feature-list {
       list-style: none;
@@ -214,9 +241,17 @@
       border-radius: 50%;
     }
 
-    .bf-dot-r { background: #ff5f57; }
-    .bf-dot-y { background: #febc2e; }
-    .bf-dot-g { background: #28c840; }
+    .bf-dot-r {
+      background: #ff5f57;
+    }
+
+    .bf-dot-y {
+      background: #febc2e;
+    }
+
+    .bf-dot-g {
+      background: #28c840;
+    }
 
     .bf-url {
       flex: 1;
@@ -243,37 +278,92 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .bf-result-url  { font-size: 9px;  color: #1a7f37; margin-bottom: 3px; }
-    .bf-result-title { font-size: 13px; color: #1a0dab; margin-bottom: 3px; }
-    .bf-result-desc  { font-size: 10px; color: #4d5156; line-height: 1.5; }
+    .bf-result-url {
+      font-size: 9px;
+      color: #1a7f37;
+      margin-bottom: 3px;
+    }
+
+    .bf-result-title {
+      font-size: 13px;
+      color: #1a0dab;
+      margin-bottom: 3px;
+    }
+
+    .bf-result-desc {
+      font-size: 10px;
+      color: #4d5156;
+      line-height: 1.5;
+    }
 
     /* Simulated doc page */
-    .bf-doc-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 10px; }
-    .bf-doc-line  { height: 6px; background: rgba(0,0,0,0.08); border-radius: 3px; margin-bottom: 5px; }
-    .bf-doc-line.w90 { width: 90%; }
-    .bf-doc-line.w75 { width: 75%; }
-    .bf-doc-line.w55 { width: 55%; }
-    .bf-doc-ref { display: inline-block; font-size: 11px; color: #1a0dab; margin-top: 8px; }
+    .bf-doc-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .bf-doc-line {
+      height: 6px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .bf-doc-line.w90 {
+      width: 90%;
+    }
+
+    .bf-doc-line.w75 {
+      width: 75%;
+    }
+
+    .bf-doc-line.w55 {
+      width: 55%;
+    }
+
+    .bf-doc-ref {
+      display: inline-block;
+      font-size: 11px;
+      color: #1a0dab;
+      margin-top: 8px;
+    }
 
     /* Simulated product list */
     .bf-product-item {
       display: flex;
       gap: 10px;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       align-items: flex-start;
     }
 
     .bf-product-img {
-      width: 36px; height: 36px;
-      background: rgba(0,0,0,0.06);
+      width: 36px;
+      height: 36px;
+      background: rgba(0, 0, 0, 0.06);
       border-radius: 4px;
       flex-shrink: 0;
     }
 
-    .bf-product-name  { font-size: 11px; font-weight: 600; color: #1a0dab; margin-bottom: 3px; }
-    .bf-product-price { font-size: 12px; font-weight: 700; color: #111; }
-    .bf-product-note  { font-size: 9px; color: #777; }
+    .bf-product-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #1a0dab;
+      margin-bottom: 3px;
+    }
+
+    .bf-product-price {
+      font-size: 12px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .bf-product-note {
+      font-size: 9px;
+      color: #777;
+    }
 
     /* NSP Preview Popup */
     .nsp-fw-popup {
@@ -285,7 +375,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.04);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
     }
 
     .nsp-fw-bar {
@@ -294,12 +384,19 @@
       justify-content: space-between;
       padding: 7px 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .nsp-fw-url { font-size: 9px; color: rgba(255,255,255,0.4); font-family: monospace; }
+    .nsp-fw-url {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: monospace;
+    }
 
-    .nsp-fw-btns { display: flex; gap: 5px; }
+    .nsp-fw-btns {
+      display: flex;
+      gap: 5px;
+    }
 
     .nsp-fw-btn {
       font-size: 9px;
@@ -339,10 +436,21 @@
       margin-bottom: 5px;
     }
 
-    .nsp-fw-line.w90 { width: 90%; }
-    .nsp-fw-line.w80 { width: 80%; }
-    .nsp-fw-line.w65 { width: 65%; }
-    .nsp-fw-spacer { height: 8px; }
+    .nsp-fw-line.w90 {
+      width: 90%;
+    }
+
+    .nsp-fw-line.w80 {
+      width: 80%;
+    }
+
+    .nsp-fw-line.w65 {
+      width: 65%;
+    }
+
+    .nsp-fw-spacer {
+      height: 8px;
+    }
 
     /* Activation hint badge */
     .nsp-kbd-badge {
@@ -363,11 +471,13 @@
       padding: 1px 5px;
       font-size: 8px;
       font-family: monospace;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
     }
 
     @media (max-width: 960px) {
-      .nsp-fw-popup { width: 60%; }
+      .nsp-fw-popup {
+        width: 60%;
+      }
     }
   </style>
 </head>
@@ -421,6 +531,25 @@
         lang-en>Get Pro for $5 &rarr;</a>
       <a href="https://buy.polar.sh/polar_cl_V1oMBbJMTOYBgiC0lI4jiDFXOC9S5bfkXbGAo1l4LNy" class="btn btn-white"
         lang-jp>$5でPro版を入手 &rarr;</a>
+
+      <!-- Gallery Section -->
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="../assets/nsp-link-preview/ss1.png" alt="NSP Link Preview Screenshot 1" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="../assets/nsp-link-preview/ss2.png" alt="NSP Link Preview Screenshot 2" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="../assets/nsp-link-preview/ss3.png" alt="NSP Link Preview Screenshot 3" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="../assets/nsp-link-preview/ss4.png" alt="NSP Link Preview Screenshot 4" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="../assets/nsp-link-preview/ss5.png" alt="NSP Link Preview Screenshot 5" class="gallery-img">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -438,15 +567,14 @@
         <li class="feature-row">
           <span class="feature-num">01</span>
           <div>
-            <p class="feature-title" lang-en>Instant Link Preview</p>
-            <p class="feature-title" lang-jp>インスタント・プレビュー</p>
+            <p class="feature-title" lang-en>Multiple Activation Methods</p>
+            <p class="feature-title" lang-jp>多彩なプレビュー起動</p>
             <p class="feature-desc" lang-en>
-              Instead of opening a link in a new tab, display a preview window directly on the current page.
-              Efficiency boosted: Check content without interrupting your flow.
+              Instant Click (Alt+Click), Hover-Balloon for subtle peeking, or Drag-and-Drop to place the window exactly
+              where you need it.
             </p>
             <p class="feature-desc" lang-jp>
-              リンクを新しいタブで開く代わりに、現在のページ上に直接プレビューウィンドウを表示します。
-              今読んでいる記事を中断することなく、中身をサクッと確認できます。
+              Alt+クリックでの即時表示、マウスホバーでの小さな吹き出し、さらにリンクを好きな場所へドラッグ＆ドロップして配置することも可能です。
             </p>
           </div>
         </li>
@@ -454,15 +582,14 @@
         <li class="feature-row">
           <span class="feature-num">02</span>
           <div>
-            <p class="feature-title" lang-en>Intuitive Activation (Customizable)</p>
-            <p class="feature-title" lang-jp>直感的な起動方法（カスタマイズ可能）</p>
+            <p class="feature-title" lang-en>Total Window Control</p>
+            <p class="feature-title" lang-jp>自由自在なウィンドウ操作</p>
             <p class="feature-desc" lang-en>
-              Supports activation by Alt / Ctrl / Shift + Click, or simply hovering over the link.
-              Choose the style that fits your workflow for instant confirmation.
+              Intuitive dragging, smooth resizing, and smart pinning. Adjust opacity to see the content underneath
+              without losing focus.
             </p>
             <p class="feature-desc" lang-jp>
-              Alt / Ctrl / Shift キーを押しながらのクリックや、リンクにマウスを乗せるだけ（ホバー）の起動に対応。
-              自分のスタイルに合わせた「一瞬の確認」を実現します。
+              直感的なドラッグ移動、スムースなリサイズ、そしてスマートなピン留め。不透明度を調整して背景を透かし見ることもできます。
             </p>
           </div>
         </li>
@@ -470,15 +597,14 @@
         <li class="feature-row">
           <span class="feature-num">03</span>
           <div>
-            <p class="feature-title" lang-en>Premium Multi-Window</p>
-            <p class="feature-title" lang-jp>プレミアム・マルチウィンドウ</p>
+            <p class="feature-title" lang-en>Navigation Persistence (Pro)</p>
+            <p class="feature-title" lang-jp>ナビゲーション維持 (Pro版)</p>
             <p class="feature-desc" lang-en>
-              Pin preview windows to keep them fixed, or adjust sizes (Small, Medium, Large) freely.
-              Open multiple previews for effortless side-by-side comparison.
+              Your previews stay open even when you navigate to a different page. Carry your gathered information with
+              you across the web.
             </p>
             <p class="feature-desc" lang-jp>
-              プレビューウィンドウは、好きな場所にピン留めして固定したり、サイズ（小・中・大）を自由に調整したりできます。
-              複数のプレビューを並べて比較することも可能です。
+              ページを移動しても、開いているプレビュー窓が消えずに残ります。情報を持ち運びながらの調査が可能です。
             </p>
           </div>
         </li>
@@ -486,15 +612,14 @@
         <li class="feature-row">
           <span class="feature-num">04</span>
           <div>
-            <p class="feature-title" lang-en>Immersive Design</p>
-            <p class="feature-title" lang-jp>没入感を高めるデザイン</p>
+            <p class="feature-title" lang-en>Recursive & Quick Search</p>
+            <p class="feature-title" lang-jp>再帰プレビュー ＆ クイック検索</p>
             <p class="feature-desc" lang-en>
-              Featuring the signature NSP series dark theme and glassmorphism UI.
-              Adjustable opacity (0.8–1.0) ensures a perfect balance between the preview and the main page.
+              Preview links inside previews for deep research. Use the right-click menu to instantly Google search or
+              translate selected text.
             </p>
             <p class="feature-desc" lang-jp>
-              NSPシリーズ特有の、高級感あふれるダークテーマとグラスモルフィズムUIを採用。
-              不透明度の調整（0.8〜1.0）により、元のページとの視認性を両立させます。
+              プレビュー窓の中のリンクをさらにプレビュー可能。右クリックメニューからの即座な検索や翻訳（別タブ）もサポートします。
             </p>
           </div>
         </li>
@@ -537,7 +662,8 @@
               <div class="bf-result">
                 <div class="bf-result-url">aitools.io › reviews › 2024</div>
                 <div class="bf-result-title">10 Best AI Research Tools in 2024 — Full Guide</div>
-                <div class="bf-result-desc">Boost research workflows with these AI-powered tools. Our top picks for analysts...</div>
+                <div class="bf-result-desc">Boost research workflows with these AI-powered tools. Our top picks for
+                  analysts...</div>
               </div>
               <div class="bf-result">
                 <div class="bf-result-url">techcrunch.com › ai › tools</div>
@@ -697,13 +823,14 @@
 
       <div class="services-grid">
         <div class="service-item">
-          <h2 class="service-name" lang-en>Side Panel Control</h2>
-          <h2 class="service-name" lang-jp>サイドパネル設定</h2>
+          <h2 class="service-name" lang-en>Flexible Customization</h2>
+          <h2 class="service-name" lang-jp>自分好みに最適化</h2>
           <p class="service-desc" lang-en>
-            Adjust behavior settings seamlessly from the standard Chrome Side Panel anytime.
+            Customizable via Side Panel: Activation keys (Alt/Ctrl/Shift), hover sensitivity, window opacity, initial
+            size/position, and domain blacklist.
           </p>
           <p class="service-desc" lang-jp>
-            Chrome標準のサイドパネルから、動作設定をいつでもシームレスに変更可能です。
+            サイドパネルから自在に調整：起動キー（Alt/Ctrl/Shift）、ホバー感度、ウィンドウの不透明度、初期サイズ・位置、ドメイン除外リスト。
           </p>
         </div>
 
@@ -761,16 +888,18 @@
           <div class="glass-card" style="padding: 24px; border: 1px solid var(--border);">
             <strong lang-en>Free Tier</strong>
             <strong lang-jp>無料版</strong>
-            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-en>Explore basic features with 5
-              previews per day.</p>
-            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-jp>1日5回までプレビュー可能。基本機能をすべて体験できます。</p>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-en>Explore basic features with 1
+              preview window at a time.</p>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-jp>同時1ウィンドウまでの制限。すべての基本機能を無料で体験できます。
+            </p>
           </div>
           <div class="glass-card" style="padding: 24px; border: 1px solid var(--white); background: rgba(0,0,0,0.02);">
             <strong lang-en>Pro Tier</strong>
             <strong lang-jp>Pro版</strong>
             <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-en>Unleash full productivity with
-              unlimited previews.</p>
-            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-jp>回数制限なしの無制限プレビュー。生産性を最大化します。</p>
+              unlimited multi-window support.</p>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px;" lang-jp>
+              マルチウィンドウ対応。回数・ウィンドウ数に制限なく生産性を最大化します。</p>
           </div>
         </div>
 
