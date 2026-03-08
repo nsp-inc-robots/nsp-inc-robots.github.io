@@ -180,6 +180,195 @@
         grid-template-columns: 40px 1fr;
       }
     }
+
+    /* ---- Browser Mockup Component ---- */
+    .browser-frame {
+      margin-top: 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      user-select: none;
+    }
+
+    .bf-bar {
+      background: #e8e8e8;
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .bf-dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .bf-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .bf-dot-r { background: #ff5f57; }
+    .bf-dot-y { background: #febc2e; }
+    .bf-dot-g { background: #28c840; }
+
+    .bf-url {
+      flex: 1;
+      background: #fff;
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 10px;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bf-body {
+      padding: 16px 20px;
+      background: #fafafa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Simulated search results */
+    .bf-result {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .bf-result-url  { font-size: 9px;  color: #1a7f37; margin-bottom: 3px; }
+    .bf-result-title { font-size: 13px; color: #1a0dab; margin-bottom: 3px; }
+    .bf-result-desc  { font-size: 10px; color: #4d5156; line-height: 1.5; }
+
+    /* Simulated doc page */
+    .bf-doc-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 10px; }
+    .bf-doc-line  { height: 6px; background: rgba(0,0,0,0.08); border-radius: 3px; margin-bottom: 5px; }
+    .bf-doc-line.w90 { width: 90%; }
+    .bf-doc-line.w75 { width: 75%; }
+    .bf-doc-line.w55 { width: 55%; }
+    .bf-doc-ref { display: inline-block; font-size: 11px; color: #1a0dab; margin-top: 8px; }
+
+    /* Simulated product list */
+    .bf-product-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      align-items: flex-start;
+    }
+
+    .bf-product-img {
+      width: 36px; height: 36px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .bf-product-name  { font-size: 11px; font-weight: 600; color: #1a0dab; margin-bottom: 3px; }
+    .bf-product-price { font-size: 12px; font-weight: 700; color: #111; }
+    .bf-product-note  { font-size: 9px; color: #777; }
+
+    /* NSP Preview Popup */
+    .nsp-fw-popup {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 52%;
+      background: rgba(14, 14, 18, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .nsp-fw-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .nsp-fw-url { font-size: 9px; color: rgba(255,255,255,0.4); font-family: monospace; }
+
+    .nsp-fw-btns { display: flex; gap: 5px; }
+
+    .nsp-fw-btn {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      padding: 1px 6px;
+      cursor: default;
+    }
+
+    .nsp-fw-content {
+      padding: 12px 14px;
+    }
+
+    .nsp-fw-site-name {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 7px;
+    }
+
+    .nsp-fw-headline {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .nsp-fw-line {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .nsp-fw-line.w90 { width: 90%; }
+    .nsp-fw-line.w80 { width: 80%; }
+    .nsp-fw-line.w65 { width: 65%; }
+    .nsp-fw-spacer { height: 8px; }
+
+    /* Activation hint badge */
+    .nsp-kbd-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 9px;
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    .nsp-kbd-badge kbd {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 8px;
+      font-family: monospace;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    }
+
+    @media (max-width: 960px) {
+      .nsp-fw-popup { width: 60%; }
+    }
   </style>
 </head>
 
@@ -335,7 +524,54 @@
             検索結果やSNSのタイムラインから離れずに、リンク先の内容を素早くチェック。
             元の探索フローを維持できます。
           </p>
-          <div class="img-placeholder">Image: Search Preview</div>
+          <div class="browser-frame">
+            <div class="bf-bar">
+              <div class="bf-dots">
+                <div class="bf-dot bf-dot-r"></div>
+                <div class="bf-dot bf-dot-y"></div>
+                <div class="bf-dot bf-dot-g"></div>
+              </div>
+              <div class="bf-url">google.com/search?q=best+AI+research+tools+2024</div>
+            </div>
+            <div class="bf-body">
+              <div class="bf-result">
+                <div class="bf-result-url">aitools.io › reviews › 2024</div>
+                <div class="bf-result-title">10 Best AI Research Tools in 2024 — Full Guide</div>
+                <div class="bf-result-desc">Boost research workflows with these AI-powered tools. Our top picks for analysts...</div>
+              </div>
+              <div class="bf-result">
+                <div class="bf-result-url">techcrunch.com › ai › tools</div>
+                <div class="bf-result-title">The AI Tools Transforming Research in 2024</div>
+                <div class="bf-result-desc">From data analysis to literature review, AI is changing how we work...</div>
+              </div>
+              <div class="bf-result">
+                <div class="bf-result-url">harvard.edu › library › research-guides</div>
+                <div class="bf-result-title">AI Tools for Academic Research — Harvard Library</div>
+                <div class="bf-result-desc">Curated guide to AI tools for academic research...</div>
+              </div>
+              <div class="nsp-fw-popup">
+                <div class="nsp-fw-bar">
+                  <span class="nsp-fw-url">aitools.io › reviews › 2024</span>
+                  <div class="nsp-fw-btns">
+                    <button class="nsp-fw-btn">📌</button>
+                    <button class="nsp-fw-btn">⊡</button>
+                    <button class="nsp-fw-btn">✕</button>
+                  </div>
+                </div>
+                <div class="nsp-fw-content">
+                  <div class="nsp-fw-site-name">AI Tools Review</div>
+                  <div class="nsp-fw-headline">10 Best AI Research Tools in 2024 — Full Guide</div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w90"></div>
+                  <div class="nsp-fw-line w80"></div>
+                  <div class="nsp-fw-spacer"></div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w65"></div>
+                </div>
+              </div>
+              <div class="nsp-kbd-badge"><kbd>Alt</kbd> + Click</div>
+            </div>
+          </div>
         </div>
 
         <div class="use-case-item">
@@ -347,7 +583,44 @@
           <p class="use-case-desc" lang-jp>
             参考文献や関連リンクを小窓で開きながら、元の文書を読み進めることができます。
           </p>
-          <div class="img-placeholder">Image: Documentation Preview</div>
+          <div class="browser-frame">
+            <div class="bf-bar">
+              <div class="bf-dots">
+                <div class="bf-dot bf-dot-r"></div>
+                <div class="bf-dot bf-dot-y"></div>
+                <div class="bf-dot bf-dot-g"></div>
+              </div>
+              <div class="bf-url">developer.mozilla.org › Web › API › fetch</div>
+            </div>
+            <div class="bf-body">
+              <div class="bf-doc-title">Fetch API — Web APIs | MDN</div>
+              <div class="bf-doc-line"></div>
+              <div class="bf-doc-line w90"></div>
+              <div class="bf-doc-line w75"></div>
+              <div class="bf-doc-line w55"></div>
+              <span class="bf-doc-ref">→ See also: XMLHttpRequest</span>
+              <div class="nsp-fw-popup">
+                <div class="nsp-fw-bar">
+                  <span class="nsp-fw-url">developer.mozilla.org › XMLHttpRequest</span>
+                  <div class="nsp-fw-btns">
+                    <button class="nsp-fw-btn">📌</button>
+                    <button class="nsp-fw-btn">⊡</button>
+                    <button class="nsp-fw-btn">✕</button>
+                  </div>
+                </div>
+                <div class="nsp-fw-content">
+                  <div class="nsp-fw-site-name">MDN Web Docs</div>
+                  <div class="nsp-fw-headline">XMLHttpRequest — Web APIs</div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w80"></div>
+                  <div class="nsp-fw-spacer"></div>
+                  <div class="nsp-fw-line w90"></div>
+                  <div class="nsp-fw-line w65"></div>
+                </div>
+              </div>
+              <div class="nsp-kbd-badge"><kbd>Alt</kbd> + Click</div>
+            </div>
+          </div>
         </div>
 
         <div class="use-case-item">
@@ -361,7 +634,53 @@
             商品詳細を別のタブで開かず、プレビューで並べて比較検討。
             効率的な買い物をサポートします。
           </p>
-          <div class="img-placeholder">Image: Product Comparison</div>
+          <div class="browser-frame">
+            <div class="bf-bar">
+              <div class="bf-dots">
+                <div class="bf-dot bf-dot-r"></div>
+                <div class="bf-dot bf-dot-y"></div>
+                <div class="bf-dot bf-dot-g"></div>
+              </div>
+              <div class="bf-url">amazon.com/s?k=mechanical+keyboard</div>
+            </div>
+            <div class="bf-body">
+              <div class="bf-product-item">
+                <div class="bf-product-img"></div>
+                <div>
+                  <div class="bf-product-name">Keychron K2 Wireless Keyboard</div>
+                  <div class="bf-product-price">$89.99</div>
+                  <div class="bf-product-note">★★★★☆ 4,821 reviews</div>
+                </div>
+              </div>
+              <div class="bf-product-item">
+                <div class="bf-product-img"></div>
+                <div>
+                  <div class="bf-product-name">Logitech MX Keys Mini</div>
+                  <div class="bf-product-price">$99.99</div>
+                  <div class="bf-product-note">★★★★★ 7,203 reviews</div>
+                </div>
+              </div>
+              <div class="nsp-fw-popup">
+                <div class="nsp-fw-bar">
+                  <span class="nsp-fw-url">amazon.com › Keychron-K2-Wireless</span>
+                  <div class="nsp-fw-btns">
+                    <button class="nsp-fw-btn">📌</button>
+                    <button class="nsp-fw-btn">⊡</button>
+                    <button class="nsp-fw-btn">✕</button>
+                  </div>
+                </div>
+                <div class="nsp-fw-content">
+                  <div class="nsp-fw-site-name">Amazon</div>
+                  <div class="nsp-fw-headline">Keychron K2 Wireless Mechanical Keyboard</div>
+                  <div class="nsp-fw-line w65"></div>
+                  <div class="nsp-fw-spacer"></div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w80"></div>
+                </div>
+              </div>
+              <div class="nsp-kbd-badge"><kbd>Alt</kbd> + Click</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
