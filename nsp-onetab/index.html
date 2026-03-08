@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSP OneTab — Chrome Extension</title>
+    <meta name="description" content="Reduce tab clutter and save memory with a stunning glassmorphism interface.">
+    <link rel="icon" href="../assets/nsp-onetab/icon128.png" type="image/png">
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/lang-manager.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+
+    <style>
+        /* ---- Product Hero ---- */
+        .product-hero {
+            padding: calc(var(--header-h) + 120px) 0 88px;
+        }
+
+        .display-text--hero {
+            font-size: clamp(2.5rem, 6vw, 4.2rem) !important;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            word-break: keep-all;
+        }
+
+        /* ---- Carousel ---- */
+        .carousel-section {
+            position: relative;
+            margin-top: 48px;
+            padding-bottom: 100px;
+        }
+
+        .carousel-container {
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #000;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            width: 100%;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .carousel-nav {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .thumbnail-item {
+            width: 80px;
+            aspect-ratio: 16 / 9;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            background: #000;
+        }
+
+        .thumbnail-item:hover {
+            opacity: 0.8;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .thumbnail-item.active {
+            opacity: 1;
+            border-color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffffff !important;
+            border: none !important;
+            color: #000000 !important;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-btn:hover {
+            background: #f8f8f8;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 24px;
+        }
+
+        .carousel-btn.next {
+            right: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .carousel-btn {
+                display: none;
+            }
+
+            .thumbnail-item {
+                width: 60px;
+            }
+        }
+
+        /* ---- Feature List ---- */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 0 28px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .feature-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .feature-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--dim);
+            padding-top: 5px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.78;
+            max-width: 640px;
+        }
+
+        /* ---- Pricing ---- */
+        .pricing-box {
+            border: 1px solid var(--border);
+            padding: 72px 60px;
+            text-align: center;
+        }
+
+        .pricing-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .pricing-note {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="site-logo">NSP inc.</a>
+            <nav class="site-nav">
+                <a href="../index.html#products" class="nav-link" lang-en>All Products</a>
+                <a href="../index.html#products" class="nav-link" lang-jp>プロダクト一覧</a>
+                <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+                <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+                <a href="https://forms.gle/your-form-url" class="nav-link" lang-en>Contact</a>
+                <a href="https://forms.gle/your-form-url" class="nav-link" lang-jp>お問い合わせ</a>
+            </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="jp">JP</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== PRODUCT HERO ===== -->
+    <section class="product-hero">
+        <div class="container">
+            <p class="section-eyebrow" lang-en>Chrome Extension &middot; Free</p>
+            <p class="section-eyebrow" lang-jp>Chrome拡張機能 &middot; 無料</p>
+
+            <img src="../assets/nsp-onetab/icon128.png" alt="NSP OneTab Icon"
+                style="width: 80px; height: 80px; margin-bottom: 32px; border-radius: 20px;">
+
+            <h1 class="display-text--hero" lang-en>Declutter Your Browser.<br>Save Your Focus.</h1>
+            <h1 class="display-text--hero" lang-jp style="line-height: 1.1; margin-bottom: 32px;">
+                <div style="white-space: nowrap;">タブの乱雑さを解消し、</div>
+                <div style="white-space: nowrap;">集中力を呼び戻す。</div>
+            </h1>
+
+            <p class="lead-text" lang-en>
+                NSP OneTab beautifully condenses all your open tabs into a single, organized list.
+                Save up to 95% of memory and eliminate the stress of too many tabs.
+            </p>
+            <p class="lead-text" lang-jp>
+                NSP OneTab は、開いているすべてのタブを美しく整理された一つのリストに集約します。
+                最大95%のメモリを節約し、大量のタブによる視覚的なストレスとブラウザの重さを解消します。
+            </p>
+
+            <a href="#" class="btn btn-white" lang-en>Download on Chrome Web Store &rarr;</a>
+            <a href="#" class="btn btn-white" lang-jp>ストアで入手 &rarr;</a>
+
+            <!-- Carousel Section (Placeholders for screenshots) -->
+            <div class="carousel-section">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <div
+                                style="width:100%; height:100%; background: linear-gradient(135deg, #1a1a2e, #16213e); display:flex; align-items:center; justify-content:center; color:#555;">
+                                [ Screenshot 1: Manager View ]</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div
+                                style="width:100%; height:100%; background: linear-gradient(135deg, #1a1a2e, #16213e); display:flex; align-items:center; justify-content:center; color:#555;">
+                                [ Screenshot 2: Welcome Page ]</div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&larr;</button>
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Next">&rarr;</button>
+                </div>
+
+                <div class="carousel-nav" id="carouselNav">
+                    <div class="thumbnail-item active" data-index="0">
+                        <div class="thumbnail-img" style="background: #333;"></div>
+                    </div>
+                    <div class="thumbnail-item" data-index="1">
+                        <div class="thumbnail-img" style="background: #333;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <span class="section-label" lang-en>Features</span>
+                <span class="section-label" lang-jp>機能</span>
+            </div>
+
+            <ul class="feature-list">
+
+                <li class="feature-row">
+                    <span class="feature-num">01</span>
+                    <div>
+                        <p class="feature-title" lang-en>One-Click Consolidate</p>
+                        <p class="feature-title" lang-jp>ワンクリックで集約</p>
+                        <p class="feature-desc" lang-en>
+                            Instantly turn all your open tabs into a single list with one click. Clear your visual space
+                            and focus on your main task.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            ツールバーのアイコンをクリックするだけで、開いているすべてのタブを瞬時に一つのリストにまとめます。視界をクリアにし、今やるべき作業に集中できます。
+                        </p>
+                    </div>
+                </li>
+
+                <li class="feature-row">
+                    <span class="feature-num">02</span>
+                    <div>
+                        <p class="feature-title" lang-en>Save up to 95% Memory</p>
+                        <p class="feature-title" lang-jp>メモリを最大95%節約</p>
+                        <p class="feature-desc" lang-en>
+                            By reducing the number of open tabs in Google Chrome, you save massive amounts of RAM,
+                            making your computer run faster and cooler.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            開いているタブの数を減らすことで、ブラウザのメモリ消費を大幅に削減。PCの動作を軽量化し、電力消費も抑えます。
+                        </p>
+                    </div>
+                </li>
+
+                <li class="feature-row">
+                    <span class="feature-num">03</span>
+                    <div>
+                        <p class="feature-title" lang-en>Premium Glassmorphism Design</p>
+                        <p class="feature-title" lang-jp>洗練されたUIデザイン</p>
+                        <p class="feature-desc" lang-en>
+                            Experience the NSP Series' signature aesthetic: purple-pink gradients combined with modern
+                            glass effects for a truly premium feel.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            NSPシリーズ共通のアイデンティティである紫・ピンクのグラデーションと、ガラスモーフィズムを融合。実用性と美しさを両立しました。
+                        </p>
+                    </div>
+                </li>
+
+                <li class="feature-row">
+                    <span class="feature-num">04</span>
+                    <div>
+                        <p class="feature-title" lang-en>Advanced Search & Filtering</p>
+                        <p class="feature-title" lang-jp>高度な検索とフィルタリング</p>
+                        <p class="feature-desc" lang-en>
+                            Easily find the tab you need within your saved list using the powerful built-in search bar.
+                            Filter by title or URL instantly.
+                        </p>
+                        <p class="feature-desc" lang-jp>
+                            集約したリストの中から、必要なタブを素早く検索。タイトルやURLでのフィルタリングにより、過去の資料もすぐに見つかります。
+                        </p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== PRICING / DOWNLOAD ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="pricing-box">
+                <p class="pricing-label" lang-en>Get Started</p>
+                <p class="pricing-label" lang-jp>今すぐはじめる</p>
+                <p class="pricing-amount" lang-en>Free</p>
+                <p class="pricing-amount" lang-jp>無料</p>
+                <p class="pricing-note" lang-en>Available now on the Chrome Web Store.</p>
+                <p class="pricing-note" lang-jp>Chrome ウェブストアで公開中。</p>
+
+                <a href="#" class="btn btn-outline" lang-en>Add to Chrome &rarr;</a>
+                <a href="#" class="btn btn-outline" lang-jp>Chrome に追加 &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="site-logo">NSP inc.</span>
+                <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Carousel Logic
+        const track = document.getElementById('carouselTrack');
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            if (index < 0) index = thumbnails.length - 1;
+            if (index >= thumbnails.length) index = 0;
+            currentIndex = index;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            thumbnails.forEach((thumb, i) => thumb.classList.toggle('active', i === currentIndex));
+        }
+
+        prevBtn?.addEventListener('click', () => updateCarousel(currentIndex - 1));
+        nextBtn?.addEventListener('click', () => updateCarousel(currentIndex + 1));
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => updateCarousel(parseInt(thumb.getAttribute('data-index'))));
+        });
+    </script>
+
+</body>
+
+</html>
