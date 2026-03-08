@@ -31,7 +31,7 @@ body {
   background: var(--bg);
   color: var(--white);
   font-family: var(--font);
-  line-height: 1.6;
+  line-height: 1.75;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -154,9 +154,11 @@ body {
   font-size: clamp(1.2rem, 7.5vw, 8.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
-  line-height: 0.95;
+  line-height: 1.08;
   color: var(--white);
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .display-text--hero div {
@@ -169,8 +171,8 @@ body {
   font-size: 1.05rem;
   color: var(--muted);
   max-width: 520px;
-  line-height: 1.78;
-  margin-bottom: 44px;
+  line-height: 1.9;
+  margin-bottom: 52px;
 }
 
 /* ----- Inline Text Link ----- */
@@ -301,14 +303,16 @@ body {
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--white);
-  line-height: 1.25;
-  margin-bottom: 16px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .service-desc {
   font-size: 0.875rem;
   color: var(--muted);
-  line-height: 1.78;
+  line-height: 1.9;
 }
 
 /* ----- Products Grid ----- */
@@ -356,16 +360,18 @@ body {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 14px;
+  line-height: 1.3;
+  margin-bottom: 18px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .product-desc {
   font-size: 0.875rem;
   color: var(--muted);
-  line-height: 1.78;
+  line-height: 1.9;
   flex: 1;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .product-footer {
@@ -405,21 +411,23 @@ body {
 
 /* ----- CTA Section ----- */
 .cta-heading {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   max-width: 560px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .cta-sub {
   font-size: 1rem;
   color: var(--muted);
   max-width: 460px;
-  line-height: 1.78;
-  margin-bottom: 40px;
+  line-height: 1.9;
+  margin-bottom: 44px;
 }
 
 /* ----- Buttons ----- */
@@ -548,13 +556,9 @@ html[lang="jp"] [lang-en] {
     padding-bottom: 56px;
   }
 
-  .display-text {
-    font-size: 3.2rem;
-  }
-
   .lead-text {
     font-size: 1rem;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   .section {
@@ -589,11 +593,7 @@ html[lang="jp"] [lang-en] {
 }
 
 @media (max-width: 480px) {
-  .display-text {
-    font-size: 2.8rem;
-  }
-
   .cta-heading {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
