@@ -322,6 +322,71 @@ body {
   border: 1px solid var(--border);
 }
 
+/* ----- Articles Grid ----- */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--border);
+}
+
+.article-card {
+  padding: 40px 40px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+.article-card:nth-child(2n) {
+  border-right: none;
+}
+
+.article-card:last-child {
+  border-bottom: none;
+}
+
+.article-card:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.article-meta {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 14px;
+}
+
+.article-date {
+  font-variant-numeric: tabular-nums;
+}
+
+.article-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.article-excerpt {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.articles-placeholder {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .product-card {
   padding: 56px 52px;
   border-right: 1px solid var(--border);
@@ -518,11 +583,13 @@ html[lang="jp"] [lang-en] {
     border-bottom: none;
   }
 
-  .products-grid {
+  .products-grid,
+  .articles-grid {
     grid-template-columns: 1fr;
   }
 
-  .product-card {
+  .product-card,
+  .article-card {
     border-right: none;
     border-bottom: 1px solid var(--border);
     padding: 44px 32px;

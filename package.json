@@ -1,0 +1,14 @@
+{
+  "name": "nsp-inc-portal",
+  "version": "1.0.0",
+  "description": "NSP inc. portal site",
+  "type": "module",
+  "scripts": {
+    "build:articles": "node scripts/fetch-note.js"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0",
+    "node-fetch": "^3.3.2"
+  }
+}
+
