@@ -569,34 +569,24 @@ html[lang="jp"] [lang-en] {
     padding: 0 32px;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-item {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 44px 32px;
-  }
-
-  .service-item:last-child {
-    border-bottom: none;
-  }
-
+  .services-grid,
   .products-grid,
   .articles-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    border: none;
+    padding: 0;
+  }
+
+  .service-item {
+    border: 1px solid var(--border);
+    padding: 44px 32px;
   }
 
   .product-card,
   .article-card {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
     padding: 44px 32px;
-  }
-
-  .product-card:last-child {
-    border-bottom: none;
   }
 }
 
@@ -636,12 +626,16 @@ html[lang="jp"] [lang-en] {
     margin-bottom: 32px;
   }
 
-  .service-item {
-    padding: 40px 0;
+  .service-item,
+  .product-card,
+  .article-card {
+    padding: 28px 24px;
   }
 
-  .product-card {
-    padding: 40px 0;
+  .articles-grid,
+  .products-grid,
+  .services-grid {
+    gap: 12px;
   }
 
   .service-name {
