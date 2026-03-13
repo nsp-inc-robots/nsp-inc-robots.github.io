@@ -394,25 +394,10 @@ body {
 }
 
 .articles-more {
-  grid-column: 1 / -1;
-  margin-top: 8px;
+  margin-top: 24px;
   margin-bottom: 0;
 }
 
-.articles-more-link {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border-mid);
-  padding-bottom: 2px;
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.articles-more-link:hover {
-  color: var(--white);
-  border-color: var(--white);
-}
 
 .product-card {
   padding: 56px 52px;

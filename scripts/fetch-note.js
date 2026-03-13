@@ -5,7 +5,6 @@ import fetch from 'node-fetch';
 import { XMLParser } from 'fast-xml-parser';
 
 const NOTE_RSS_URL = 'https://note.com/nsp_inc_robots/rss';
-const NOTE_PROFILE_URL = 'https://note.com/nsp_inc_robots';
 const MAX_ARTICLES = 10;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -84,16 +83,7 @@ async function buildArticlesHtml() {
     return buildArticleCardHtml({ title, link, pubDate, excerpt });
   });
 
-  const moreLink = [
-    '<p class="articles-more">',
-    `<a href="${NOTE_PROFILE_URL}" target="_blank" rel="noopener" class="articles-more-link">`,
-    '<span lang-en>and more...</span>',
-    '<span lang-jp>記事一覧へ</span>',
-    `</a>`,
-    '</p>'
-  ].join('');
-
-  return cards.join('\n\n') + '\n\n' + moreLink;
+  return cards.join('\n\n');
 }
 
 async function updateIndexHtml() {
