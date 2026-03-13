@@ -327,6 +327,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border: 1px solid var(--border);
+  min-width: 0;
 }
 
 .article-card {
@@ -338,6 +339,8 @@ body {
   display: flex;
   flex-direction: column;
   transition: background 0.2s;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .article-card:nth-child(2n) {
@@ -372,7 +375,7 @@ body {
   color: var(--white);
   line-height: 1.5;
   margin-bottom: 14px;
-  word-break: keep-all;
+  word-break: break-word;
   overflow-wrap: break-word;
 }
 
@@ -380,6 +383,9 @@ body {
   font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.9;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .articles-placeholder {
