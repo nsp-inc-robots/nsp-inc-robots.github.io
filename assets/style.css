@@ -270,7 +270,7 @@ body {
 /* ----- Services Grid ----- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border: 1px solid var(--border);
 }
 
@@ -402,6 +402,7 @@ body {
 .product-card {
   padding: 56px 52px;
   border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -409,8 +410,12 @@ body {
   transition: background 0.2s;
 }
 
-.product-card:last-child {
+.product-card:nth-child(2n) {
   border-right: none;
+}
+
+.product-card:nth-last-child(-n+2) {
+  border-bottom: none;
 }
 
 @media (min-width: 1920px) {
