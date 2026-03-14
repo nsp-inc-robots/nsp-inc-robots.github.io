@@ -512,6 +512,31 @@ body {
   margin-bottom: 44px;
 }
 
+.contact-offer-list {
+  list-style: none;
+  max-width: 560px;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-offer-item {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+.contact-offer-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-offer-title {
+  font-weight: 600;
+  color: var(--white);
+  display: inline;
+}
+
 /* ----- Buttons ----- */
 .btn {
   display: inline-block;
