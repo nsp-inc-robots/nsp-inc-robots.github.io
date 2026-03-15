@@ -455,6 +455,15 @@ body {
   margin-bottom: 18px;
 }
 
+.product-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .product-name {
   font-size: 1.85rem;
   font-weight: 700;
