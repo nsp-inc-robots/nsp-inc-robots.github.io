@@ -39,9 +39,11 @@ body {
 
 /* ----- Layout ----- */
 .container {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
+  min-width: 0;
 }
 
 @media (min-width: 1920px) {
@@ -70,6 +72,7 @@ body {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 40px;
+  min-width: 0;
 }
 
 .site-logo {
@@ -79,6 +82,7 @@ body {
   color: var(--white);
   text-decoration: none;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .site-nav {
@@ -189,6 +193,18 @@ body {
 
 .text-link:hover {
   border-color: var(--white);
+}
+
+/* ----- Hero Actions ----- */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-actions .status-badge {
+  margin-left: 0;
 }
 
 /* ----- Marquee ----- */
@@ -655,6 +671,11 @@ html[lang="jp"] [lang-en] {
     padding-bottom: 56px;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .lead-text {
     font-size: 1rem;
     margin-bottom: 36px;
@@ -686,6 +707,11 @@ html[lang="jp"] [lang-en] {
 
   .product-name {
     font-size: 1.6rem;
+  }
+
+  .display-text--hero {
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .footer-inner {
