@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -44,6 +45,7 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   min-width: 0;
+  overflow-x: hidden;
 }
 
 @media (min-width: 1920px) {
@@ -712,6 +714,11 @@ html[lang="jp"] [lang-en] {
   .display-text--hero {
     overflow-wrap: break-word;
     word-break: break-word;
+  }
+
+  .display-text--hero div {
+    white-space: normal !important;
+    width: auto !important;
   }
 
   .footer-inner {
