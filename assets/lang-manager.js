@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const langBtns = document.querySelectorAll('.lang-btn');
 
-    // Default language: Japanese (switch to EN via button)
+    // Default language: English (switch to JP via button)
     const savedLang = localStorage.getItem('nsp-lang');
-    const defaultLang = 'jp';
+    const defaultLang = 'en';
     const currentLang = savedLang || defaultLang;
 
     updateLang(currentLang);
