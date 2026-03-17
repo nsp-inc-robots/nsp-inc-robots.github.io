@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSP inc.、Chrome拡張機能「NSP LinguaShift」を公開 — プレスリリース</title>
+  <meta name="description" content="NSP inc.は、Chrome向け言語学習拡張機能「NSP LinguaShift」の公開を発表。普段のウェブ閲覧を語学学習の場に変える、全機能無料のツール。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NSP inc.、Chrome拡張機能「NSP LinguaShift」を公開 — プレスリリース">
+  <meta property="og:description" content="普段のウェブ閲覧を語学学習に変えるChrome拡張機能。英語・韓国語対応、全機能無料。">
+  <meta property="og:site_name" content="NSP inc.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/lang-manager.js" defer></script>
+  <script src="../assets/animations.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
+  <style>
+    .press-hero {
+      padding: calc(var(--header-h) + 140px) 0 100px;
+    }
+
+    .press-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .press-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid var(--border-mid);
+      padding: 5px 14px;
+      border-radius: var(--r-pill);
+    }
+
+    .press-date {
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .press-title {
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.22;
+      margin-bottom: 64px;
+      color: var(--white);
+      max-width: 900px;
+    }
+
+    .press-body {
+      max-width: 760px;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--muted);
+      letter-spacing: 0.005em;
+    }
+
+    .press-body h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      padding-top: 56px;
+      margin-top: 0;
+      margin-bottom: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .press-body h2:first-of-type {
+      margin-top: 48px;
+    }
+
+    .press-body p {
+      margin-bottom: 22px;
+    }
+
+    .press-body ul {
+      padding-left: 20px;
+      margin-bottom: 22px;
+    }
+
+    .press-body ul li {
+      margin-bottom: 10px;
+      line-height: 1.9;
+    }
+
+    .press-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 64px 0;
+    }
+
+    .press-info-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 16px 40px;
+      font-size: 13px;
+      background: var(--card-bg);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow);
+      padding: 36px 44px;
+    }
+
+    .press-info-label {
+      color: var(--dim);
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding-top: 1px;
+    }
+
+    .press-info-value {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .press-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--dim);
+      text-decoration: none;
+      margin-bottom: 56px;
+      letter-spacing: 0.02em;
+      transition: color 0.2s var(--ease), gap 0.2s var(--ease);
+    }
+
+    .press-back:hover {
+      color: var(--white);
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .press-hero {
+        padding: calc(var(--header-h) + 72px) 0 72px;
+      }
+
+      .press-info-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 28px 24px;
+      }
+
+      .press-info-label {
+        color: var(--white);
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">NSP inc.</a>
+      <nav class="site-nav">
+        <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+        <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+        <a href="../index.html#products" class="nav-link" lang-jp>プロダクト</a>
+        <a href="../index.html#products" class="nav-link" lang-en>Products</a>
+        <a href="../index.html#articles" class="nav-link" lang-jp>記事・コラム</a>
+        <a href="../index.html#articles" class="nav-link" lang-en>Articles &amp; Notes</a>
+        <a href="index.html" class="nav-link" lang-jp>プレスリリース</a>
+        <a href="index.html" class="nav-link" lang-en>Press</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-jp>お問い合わせ</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-en>Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PRESS RELEASE BODY ===== -->
+  <section class="press-hero">
+    <div class="container">
+      <a href="index.html" class="press-back">&larr; <span lang-jp>プレスリリース一覧</span><span lang-en>All press releases</span></a>
+
+      <div class="press-meta">
+        <span class="press-badge">Press Release</span>
+        <span class="press-date">2026年3月17日</span>
+      </div>
+
+      <h1 class="press-title" lang-jp>
+        NSP inc.、Chrome拡張機能「NSP LinguaShift」を公開<br>
+        ——普段のウェブ閲覧を、そのまま語学学習に変える新感覚アシスタント
+      </h1>
+      <h1 class="press-title" lang-en>
+        NSP inc. Launches "NSP LinguaShift" Chrome Extension<br>
+        — Turn Your Daily Browsing into Language Learning
+      </h1>
+
+      <div class="press-body" lang-jp>
+        <p>
+          NSP inc. は本日2026年3月17日、Google Chrome向け言語学習拡張機能「NSP LinguaShift（エヌエスピー・リングアシフト）」の公開を発表しました。本製品は、ユーザーが普段閲覧しているウェブページの日本語テキストを自動的に英語または韓国語へ置換することで、日常のブラウジングをそのまま語学学習の場へと転換します。全機能を制限なく、完全無料でご利用いただけます。
+        </p>
+
+        <h2>■ 開発の背景</h2>
+        <p>
+          語学学習における最大の障壁は「継続性」です。専用のアプリを開いたり、参考書を手に取ったりするには、毎回意志力と時間を必要とします。多くの学習者がこの「始めるハードル」を越えられずに挫折してきました。
+        </p>
+        <p>
+          NSP LinguaShiftは、すでに日常習慣として確立しているウェブ閲覧の中に、自然に語学学習を組み込みます。意識的に「勉強モード」に入ることなく、いつものニュースを読む時間が、そのまま英語・韓国語のインプット時間へと変わります。
+        </p>
+        <p>
+          製品のコンセプトは「<strong>『勉強する時間』を、『ウェブを見る時間』に変える。</strong>」です。
+        </p>
+
+        <h2>■ 主な機能</h2>
+
+        <p><strong>1. 高度な日本語解析エンジン</strong><br>
+          形態素解析ライブラリ「Kuromoji」を搭載し、日本語文の構造を解析した上で、学習効果の高い単語を選定して置換します。単純なランダム置換とは異なり、文脈を壊さない自然な変換を実現しています。</p>
+
+        <p><strong>2. 英語・韓国語のダブル対応</strong><br>
+          ビジネスや資格試験に不可欠な「英語」と、K-POPやドラマ・旅行など文化的背景から需要が高まっている「韓国語（ハングル）」の両言語に対応しています。拡張機能のポップアップ上でワンタップ切り替えが可能です。</p>
+
+        <p><strong>3. 調整可能な置換レベル（10〜80%）</strong><br>
+          ページ内の頻出単語ランキング上位から「何種類の単語を置換するか」をスライダーで自由に設定できます。語学学習の初期段階では10〜20%程度から始め、習熟度が上がるにつれて徐々に引き上げていくグラデーション学習が可能です。</p>
+
+        <p><strong>4. 高品質TTS（音声合成）による発音確認</strong><br>
+          置換された単語をクリックすると、高品質な音声合成（Text-to-Speech）でネイティブに近い発音を即座に再生します。目で読むだけでなく、耳からも同時に学べるマルチモーダルな学習体験を提供します。</p>
+
+        <p><strong>5. ホバーで確認できる文脈情報ツールチップ</strong><br>
+          置換された単語にマウスカーソルを合わせると、元の日本語・読み方・習得状況がポップアップ表示されます。ページを離れることなく意味確認ができるため、閲覧の流れを途切らせません。</p>
+
+        <h2>■ 学習進捗の可視化</h2>
+        <p>
+          拡張機能のポップアップでは、「習得済み単語数」「連続学習日数（ストリーク）」「今日習得した単語数」の3つの指標をリアルタイムで確認できます。学習の継続を促すゲーミフィケーション要素として機能します。
+        </p>
+
+        <h2>■ その他の特徴</h2>
+        <ul>
+          <li>サイトごとのオン/オフ切り替え機能（無効にしたいサイトを個別指定可能）</li>
+          <li>翻訳にMyMemory翻訳APIを使用（追加設定不要）</li>
+          <li>学習データのリセット機能</li>
+          <li>翻訳キャッシュクリア機能</li>
+        </ul>
+
+        <h2>■ 価格・提供形態</h2>
+        <p>
+          完全無料。全機能に制限なし。課金プランや機能制限は設けておりません。
+        </p>
+
+        <h2>■ 提供プラットフォーム</h2>
+        <p>
+          Google Chrome（Chrome ウェブストアにて公開中）<br>
+          ストア：<a href="https://chromewebstore.google.com/detail/nsp-linguashift-%E8%A8%80%E8%AA%9E%E5%AD%A6%E7%BF%92%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3/gfmacikcpmdagakhkhejfpcalbbbigen" target="_blank" rel="noopener" style="color: var(--white);">Chrome ウェブストアで入手</a><br>
+          公式ページ：<a href="https://nsp-inc-robots.github.io/nsp-lingua-shift/" target="_blank" rel="noopener" style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-lingua-shift/</a>
+        </p>
+
+        <hr class="press-divider">
+
+        <h2>■ 製品情報</h2>
+        <div class="press-info-grid">
+          <span class="press-info-label">製品名</span>
+          <span class="press-info-value">NSP LinguaShift（エヌエスピー・リングアシフト）</span>
+          <span class="press-info-label">バージョン</span>
+          <span class="press-info-value">3.1.0</span>
+          <span class="press-info-label">カテゴリ</span>
+          <span class="press-info-value">Chrome拡張機能 / 言語学習</span>
+          <span class="press-info-label">対応言語</span>
+          <span class="press-info-value">英語・韓国語</span>
+          <span class="press-info-label">価格</span>
+          <span class="press-info-value">完全無料（全機能・制限なし）</span>
+          <span class="press-info-label">プラットフォーム</span>
+          <span class="press-info-value">
+            <a href="https://chromewebstore.google.com/detail/nsp-linguashift-%E8%A8%80%E8%AA%9E%E5%AD%A6%E7%BF%92%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3/gfmacikcpmdagakhkhejfpcalbbbigen" target="_blank" rel="noopener" style="color: var(--muted);">Google Chrome（Chrome ウェブストア）</a>
+          </span>
+          <span class="press-info-label">公開日</span>
+          <span class="press-info-value">2026年3月17日</span>
+          <span class="press-info-label">公式ページ</span>
+          <span class="press-info-value">
+            <a href="https://nsp-inc-robots.github.io/nsp-lingua-shift/" target="_blank" rel="noopener"
+              style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-lingua-shift/</a>
+          </span>
+        </div>
+
+        <hr class="press-divider">
+
+        <h2>■ NSP inc. について</h2>
+        <p>
+          NSP inc. は、Chrome拡張機能・WordPressプラグイン・スマートフォンアプリの企画・開発と、AI活用・ソフトウェアに関するコンサルティングを手がける日本のソフトウェア企業です。NSP LinguaShiftのほか、タブ整理ツール「NSP OneTab」、リンクプレビューツール「NSP Link Preview」など、複数のChrome拡張機能を展開しています。
+        </p>
+        <p>
+          企業サイト：<a href="https://nsp-inc-robots.github.io/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/</a>
+        </p>
+
+        <h2>■ 本件に関するお問い合わせ</h2>
+        <p>
+          NSP inc. お問い合わせフォーム<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener"
+            style="color: var(--white);">https://docs.google.com/forms/d/e/1FAIpQLSdf5...</a>
+        </p>
+      </div>
+
+      <!-- English version -->
+      <div class="press-body" lang-en>
+        <p>
+          NSP inc. today announced the release of "NSP LinguaShift," a language learning extension for Google Chrome. The tool automatically replaces portions of Japanese text on any webpage with English or Korean, transforming everyday web browsing into a language learning experience. All features are available completely free of charge.
+        </p>
+
+        <h2>■ Background</h2>
+        <p>
+          The biggest obstacle to language learning is consistency. Opening a dedicated app or picking up a textbook requires willpower and time — hurdles that cause many learners to give up. NSP LinguaShift solves this by embedding vocabulary acquisition directly into a habit users already have: reading websites.
+        </p>
+        <p>
+          The product concept: <strong>"Don't Study. Just Browse."</strong>
+        </p>
+
+        <h2>■ Key Features</h2>
+
+        <p><strong>1. Intelligent Morphological Analysis</strong><br>
+          Powered by the Kuromoji library, LinguaShift analyzes the structure of Japanese sentences to select and replace words where learning impact is highest — a meaningfully different experience from random substitution.</p>
+
+        <p><strong>2. English &amp; Korean Dual Support</strong><br>
+          Supports both English (essential for business and exams) and Korean (driven by K-pop and drama culture). Switch between languages with a single tap in the popup.</p>
+
+        <p><strong>3. Adjustable Learning Intensity (10–80%)</strong><br>
+          A slider controls what percentage of high-frequency words on the page get replaced. Beginners can start at 10–20% and increase intensity as their vocabulary grows.</p>
+
+        <p><strong>4. Crystal Clear Audio Playback (TTS)</strong><br>
+          Click any replaced word to hear it spoken aloud in high-quality text-to-speech. Learn with both eyes and ears simultaneously.</p>
+
+        <p><strong>5. Instant Contextual Tooltip</strong><br>
+          Hovering over any replaced word surfaces the original Japanese, phonetic reading, and mastery status in a popup — no need to leave the page.</p>
+
+        <h2>■ Learning Stats</h2>
+        <p>
+          The extension popup displays three real-time metrics: total words learned, current learning streak (days), and words learned today — adding a gamification layer that encourages consistent use.
+        </p>
+
+        <h2>■ Additional Features</h2>
+        <ul>
+          <li>Per-site enable/disable toggle</li>
+          <li>Uses MyMemory Translation API (no setup required)</li>
+          <li>Learning data reset</li>
+          <li>Translation cache clear</li>
+        </ul>
+
+        <h2>■ Pricing</h2>
+        <p>
+          Completely free. All features included with no restrictions or paid tiers.
+        </p>
+
+        <h2>■ Availability</h2>
+        <p>
+          Google Chrome — available now on the Chrome Web Store.<br>
+          Store: <a href="https://chromewebstore.google.com/detail/nsp-linguashift-%E8%A8%80%E8%AA%9E%E5%AD%A6%E7%BF%92%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3/gfmacikcpmdagakhkhejfpcalbbbigen" target="_blank" rel="noopener" style="color: var(--white);">Get on Chrome Web Store</a><br>
+          Official page: <a href="https://nsp-inc-robots.github.io/nsp-lingua-shift/" target="_blank" rel="noopener" style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-lingua-shift/</a>
+        </p>
+
+        <hr class="press-divider">
+
+        <h2>■ Product Details</h2>
+        <div class="press-info-grid">
+          <span class="press-info-label">Product</span>
+          <span class="press-info-value">NSP LinguaShift</span>
+          <span class="press-info-label">Version</span>
+          <span class="press-info-value">3.1.0</span>
+          <span class="press-info-label">Category</span>
+          <span class="press-info-value">Chrome Extension / Language Learning</span>
+          <span class="press-info-label">Languages</span>
+          <span class="press-info-value">English &amp; Korean</span>
+          <span class="press-info-label">Price</span>
+          <span class="press-info-value">Free — all features, no restrictions</span>
+          <span class="press-info-label">Platform</span>
+          <span class="press-info-value">
+            <a href="https://chromewebstore.google.com/detail/nsp-linguashift-%E8%A8%80%E8%AA%9E%E5%AD%A6%E7%BF%92%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3/gfmacikcpmdagakhkhejfpcalbbbigen" target="_blank" rel="noopener" style="color: var(--muted);">Google Chrome (Chrome Web Store)</a>
+          </span>
+          <span class="press-info-label">Release Date</span>
+          <span class="press-info-value">March 17, 2026</span>
+          <span class="press-info-label">Official Page</span>
+          <span class="press-info-value">
+            <a href="https://nsp-inc-robots.github.io/nsp-lingua-shift/" target="_blank" rel="noopener"
+              style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-lingua-shift/</a>
+          </span>
+        </div>
+
+        <hr class="press-divider">
+
+        <h2>■ About NSP inc.</h2>
+        <p>
+          NSP inc. is a Japanese software company specializing in Chrome extensions, WordPress plugins, and smartphone apps, as well as AI and software consulting. In addition to NSP LinguaShift, the company offers NSP OneTab (a tab organizer) and NSP Link Preview (an in-page link preview tool).
+        </p>
+        <p>
+          Website: <a href="https://nsp-inc-robots.github.io/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/</a>
+        </p>
+
+        <h2>■ Press Contact</h2>
+        <p>
+          NSP inc. Contact Form<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener"
+            style="color: var(--white);">https://docs.google.com/forms/d/e/1FAIpQLSdf5...</a>
+        </p>
+      </div>
+
+      <div style="margin-top: 80px;">
+        <a href="index.html" class="press-back">&larr; <span lang-jp>プレスリリース一覧に戻る</span><span lang-en>Back to all press releases</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+        <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

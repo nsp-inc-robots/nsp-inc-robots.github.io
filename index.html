@@ -9,6 +9,7 @@
   <meta name="description" content="ソフトウェアの企画・開発（Chrome拡張・WordPressプラグイン・スマホアプリ）と、各種コンサルティング。">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/lang-manager.js" defer></script>
+  <script src="assets/animations.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
@@ -28,6 +29,8 @@
         <a href="#products" class="nav-link" lang-en>Products</a>
         <a href="#articles" class="nav-link" lang-jp>記事・コラム</a>
         <a href="#articles" class="nav-link" lang-en>Articles &amp; Notes</a>
+        <a href="press/index.html" class="nav-link" lang-jp>プレスリリース</a>
+        <a href="press/index.html" class="nav-link" lang-en>Press</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
           class="nav-link" lang-jp>お問い合わせ</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
@@ -61,10 +64,12 @@
       <div class="hero-actions">
         <a href="#products" class="text-link" lang-jp>プロダクトを見る &rarr;</a>
         <a href="#products" class="text-link" lang-en>See our products &rarr;</a>
-        <div class="status-badge" style="font-size: 12px; color: var(--dim);">
-          <span lang-jp>NSP シリーズ: ストア審査中</span>
-          <span lang-en>NSP Series: Submission in progress</span>
-        </div>
+        <a href="https://chromewebstore.google.com/detail/nsp-linguashift-%E8%A8%80%E8%AA%9E%E5%AD%A6%E7%BF%92%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3/gfmacikcpmdagakhkhejfpcalbbbigen"
+          class="status-badge" style="font-size: 12px; color: var(--dim); text-decoration: none; transition: color 0.2s;" target="_blank" rel="noopener"
+          onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">
+          <span lang-jp>NSP LinguaShift: Chrome ウェブストアで公開中 &rarr;</span>
+          <span lang-en>NSP LinguaShift: Now on Chrome Web Store &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -214,8 +219,8 @@
           </p>
           <div class="product-footer">
             <span class="product-price">Free</span>
-            <span class="product-price-note" lang-jp>審査中</span>
-            <span class="product-price-note" lang-en>In review</span>
+            <span class="product-price-note product-price-live" lang-jp>&#x2022; 公開中</span>
+            <span class="product-price-note product-price-live" lang-en>&#x2022; Live</span>
             <span class="product-arrow">&rarr;</span>
           </div>
         </a>
@@ -335,68 +340,78 @@
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="section" id="contact">
+  <!-- ===== PRESS RELEASES ===== -->
+  <section class="section" id="press">
     <div class="container">
       <div class="section-header">
         <span class="section-num">04</span>
+        <span class="section-label" lang-jp>プレスリリース</span>
+        <span class="section-label" lang-en>Press Releases</span>
+      </div>
+
+      <div id="press-list" class="articles-grid">
+        <!-- PRESS-AUTO-GENERATED: START -->
+<a href="press/2026-03-17-nsp-linguashift.html" class="article-card">
+  <p class="article-meta">PRESS RELEASE</p>
+  <p class="article-date article-meta">2026/03/17</p>
+  <h3 class="article-title">NSP inc.、Chrome拡張機能「NSP LinguaShift」を公開——普段のウェブ閲覧を語学学習に変える新感覚アシスタント</h3>
+  <p class="article-excerpt">NSP inc.は本日、Chrome向け言語学習拡張機能「NSP LinguaShift」の公開を発表した。ユーザーが普段閲覧しているウェブページの日本語テキストを自動的に英語または韓国語へ置換することで、日常のブラウジングを語学学習の場へと変える。全機能が完全無料で提供される。</p>
+</a>
+        <!-- PRESS-AUTO-GENERATED: END -->
+      </div>
+      <p class="articles-more">
+        <a href="press/index.html" class="btn btn-outline">
+          <span lang-jp>プレスリリース一覧へ</span>
+          <span lang-en>All press releases</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section section--dark" id="contact">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-num">05</span>
         <span class="section-label" lang-jp>お問い合わせ</span>
         <span class="section-label" lang-en>Work with us</span>
       </div>
 
-      <div style="width: 100%;">
-        <p class="cta-sub" style="max-width: 100%; margin-bottom: 28px;" lang-jp>
-          現在、以下の内容に関するご相談・ご依頼を随時承っております。
-        </p>
-        <p class="cta-sub" style="max-width: 100%; margin-bottom: 28px;" lang-en>
-          We are currently accepting inquiries and requests regarding the following.
-        </p>
+      <h2 class="cta-heading" lang-jp>一緒に、作りましょう。</h2>
+      <h2 class="cta-heading" lang-en>Let's build something together.</h2>
 
-        <ul class="contact-offer-list" lang-jp>
-          <li class="contact-offer-item">
-            <span class="contact-offer-title">導入支援・技術レクチャー：</span>
-            本ソフトウェアの最適な運用方法や技術指導
-          </li>
-          <li class="contact-offer-item">
-            <span class="contact-offer-title">AI活用コンサルティング：</span>
-            業務プロセスへのAI導入支援および戦略立案
-          </li>
-          <li class="contact-offer-item">
-            <span class="contact-offer-title">個別開発・カスタマイズ：</span>
-            特定のニーズに合わせた機能拡張のご提案
-          </li>
-        </ul>
+      <div class="contact-grid">
 
-        <ul class="contact-offer-list" lang-en>
-          <li class="contact-offer-item">
-            <span class="contact-offer-title">Implementation support &amp; technical training:</span>
-            Optimal usage and technical guidance for our software
-          </li>
-          <li class="contact-offer-item">
-            <span class="contact-offer-title">AI consulting:</span>
-            AI adoption support and strategy for your business processes
-          </li>
-          <li class="contact-offer-item">
-            <span class="contact-offer-title">Custom development:</span>
-            Feature extensions tailored to your specific needs
-          </li>
-        </ul>
+        <div class="contact-item">
+          <p class="contact-item-title" lang-jp>導入支援・技術レクチャー</p>
+          <p class="contact-item-title" lang-en>Implementation &amp; Training</p>
+          <p class="contact-item-desc" lang-jp>ソフトウェアの最適な運用方法や、チーム向け技術指導を行います。</p>
+          <p class="contact-item-desc" lang-en>Hands-on guidance for optimal software use and team-level technical training.</p>
+        </div>
 
-        <p class="cta-sub contact-gate" style="max-width: 100%; margin-top: 32px; margin-bottom: 20px;" lang-jp>
-          <strong>お問い合わせ窓口</strong><br>
-          詳細や費用に関するご相談は、下記URLよりお気軽にお問い合わせください。
-        </p>
-        <p class="cta-sub contact-gate" style="max-width: 100%; margin-top: 32px; margin-bottom: 20px;" lang-en>
-          <strong>Contact</strong><br>
-          For details or cost estimates, please reach out via the link below.
-        </p>
+        <div class="contact-item">
+          <p class="contact-item-title" lang-jp>AI活用コンサルティング</p>
+          <p class="contact-item-title" lang-en>AI Consulting</p>
+          <p class="contact-item-desc" lang-jp>業務プロセスへのAI導入支援から、活用戦略の立案まで対応します。</p>
+          <p class="contact-item-desc" lang-en>From AI adoption in workflows to strategy planning for your organization.</p>
+        </div>
+
+        <div class="contact-item">
+          <p class="contact-item-title" lang-jp>個別開発・カスタマイズ</p>
+          <p class="contact-item-title" lang-en>Custom Development</p>
+          <p class="contact-item-desc" lang-jp>特定のニーズに合わせた機能拡張・受託開発のご提案をします。</p>
+          <p class="contact-item-desc" lang-en>Tailored feature development and commissioned work for your specific needs.</p>
+        </div>
+
       </div>
 
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
-        class="btn btn-outline" target="_blank" rel="noopener">
-        <span lang-jp>お問い合わせフォームを開く &rarr;</span>
-        <span lang-en>Open contact form &rarr;</span>
+        class="btn btn-white contact-cta" target="_blank" rel="noopener">
+        <span lang-jp>お問い合わせ &rarr;</span>
+        <span lang-en>Get in touch &rarr;</span>
       </a>
+
     </div>
   </section>
 
