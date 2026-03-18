@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSP inc.、Chrome拡張機能「NSP OneTab」を公開 — プレスリリース</title>
+  <meta name="description" content="NSP inc.は、タブ管理拡張機能「NSP OneTab」の公開を発表。ワンクリックでタブを美しく集約し、最大95%のメモリ節約を支援します。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NSP inc.、Chrome拡張機能「NSP OneTab」を公開 — プレスリリース">
+  <meta property="og:description" content="モダンでプレミアムなデザインのタブ管理拡張機能。ワンクリックでタブを集約し、最大95%のメモリ節約を支援。">
+  <meta property="og:site_name" content="NSP inc.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/lang-manager.js" defer></script>
+  <script src="../assets/animations.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
+  <style>
+    .press-hero {
+      padding: calc(var(--header-h) + 140px) 0 100px;
+    }
+
+    .press-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .press-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid var(--border-mid);
+      padding: 5px 14px;
+      border-radius: var(--r-pill);
+    }
+
+    .press-date {
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .press-title {
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.22;
+      margin-bottom: 64px;
+      color: var(--white);
+      max-width: 900px;
+    }
+
+    .press-body {
+      max-width: 760px;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--muted);
+      letter-spacing: 0.005em;
+    }
+
+    .press-body h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      padding-top: 56px;
+      margin-top: 0;
+      margin-bottom: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .press-body h2:first-of-type {
+      margin-top: 48px;
+    }
+
+    .press-body p {
+      margin-bottom: 22px;
+    }
+
+    .press-body ul {
+      padding-left: 20px;
+      margin-bottom: 22px;
+    }
+
+    .press-body ul li {
+      margin-bottom: 10px;
+      line-height: 1.9;
+    }
+
+    .press-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 64px 0;
+    }
+
+    .press-info-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 16px 40px;
+      font-size: 13px;
+      background: var(--card-bg);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow);
+      padding: 36px 44px;
+    }
+
+    .press-info-label {
+      color: var(--dim);
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .press-info-value {
+      color: var(--white);
+      line-height: 1.8;
+    }
+
+    .press-back {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+      transition: opacity 0.25s ease;
+    }
+
+    .press-back:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 640px) {
+      .press-hero {
+        padding: calc(var(--header-h) + 72px) 0 72px;
+      }
+
+      .press-info-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 26px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">NSP inc.</a>
+      <nav class="site-nav">
+        <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+        <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+        <a href="../index.html#products" class="nav-link" lang-jp>プロダクト</a>
+        <a href="../index.html#products" class="nav-link" lang-en>Products</a>
+        <a href="../index.html#articles" class="nav-link" lang-jp>記事・コラム</a>
+        <a href="../index.html#articles" class="nav-link" lang-en>Articles &amp; Notes</a>
+        <a href="index.html" class="nav-link" lang-jp>プレスリリース</a>
+        <a href="index.html" class="nav-link" lang-en>Press</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-jp>お問い合わせ</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-en>Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PRESS RELEASE BODY ===== -->
+  <section class="press-hero">
+    <div class="container">
+      <a href="index.html" class="press-back">&larr; <span lang-jp>プレスリリース一覧</span><span lang-en>All press releases</span></a>
+
+      <div class="press-meta">
+        <span class="press-badge">Press Release</span>
+        <span class="press-date">2026年3月18日</span>
+      </div>
+
+      <h1 class="press-title" lang-jp>
+        NSP inc.、Chrome拡張機能「NSP OneTab」を公開<br>
+        ——ワンクリックでタブを美しく整理・保存し、最大95%のメモリ節約を支援
+      </h1>
+      <h1 class="press-title" lang-en>
+        NSP inc. Launches "NSP OneTab" Chrome Extension<br>
+        — Premium tab organizer that declutters with one click
+      </h1>
+
+      <div class="press-body" lang-jp>
+        <p>
+          NSP inc. は本日2026年3月18日、Google Chrome向けタブ管理拡張機能「NSP OneTab（エヌエスピー・ワンタブ）」の公開を発表しました。
+          本製品は、開いているすべてのタブをワンクリックで一つの美しいリストに集約し、視覚的に整理・保存します。
+          開きすぎたタブによるブラウザの重さを解消し、最大95%のメモリ節約を支援することで、作業への集中力を高めます。
+        </p>
+
+        <h2>■ 開発の背景</h2>
+        <p>
+          ブラウザでの作業が増えるほど、タブは増え続けます。気づけばタブが何十枚にもなり、見つけたいページに辿り着けない、ブラウザが重い、という状態に陥りがちです。
+        </p>
+        <p>
+          NSP OneTab は「ワンクリックで作業環境をリセットできる」体験を提供します。散らかったタブを一つのリストにまとめ、必要なものだけをいつでも復元できる状態にすることで、ブラウジングのストレスを減らします。
+        </p>
+
+        <h2>■ 主な機能</h2>
+
+        <p><strong>1. ワンクリック集約</strong><br>
+          すべてのタブを瞬時に一つのリストへ統合。視界をクリアにし、今やるべき作業に集中できます。</p>
+
+        <p><strong>2. 高品位なデザイン</strong><br>
+          NSP シリーズ共通の紫・ピンクグラデーションとガラスモーフィズムを採用。モダンでプレミアムな操作体験を実現します。</p>
+
+        <p><strong>3. メモリ最適化</strong><br>
+          不要なタブを閉じることでブラウザの動作を軽量化。最大95%のメモリ節約を支援します。</p>
+
+        <p><strong>4. 簡単復元</strong><br>
+          必要なタブだけをドラッグ＆ドロップで戻したり、一括で復元可能。作業の再開もスムーズです。</p>
+
+        <h2>■ 価格・提供形態</h2>
+        <p>
+          完全無料。全機能に制限なし。課金プランや機能制限は設けておりません。
+        </p>
+
+        <h2>■ 提供プラットフォーム</h2>
+        <p>
+          Google Chrome（Chrome ウェブストアにて公開中）<br>
+          ストア：<a href="https://chromewebstore.google.com/detail/konhegkdbiicoapggdjdjlgncoecgleg?hl=ja" target="_blank" rel="noopener"
+            style="color: var(--white);">Chrome ウェブストアで入手</a><br>
+          公式ページ：<a href="https://nsp-inc-robots.github.io/nsp-onetab/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-onetab/</a>
+        </p>
+
+        <hr class="press-divider">
+
+        <h2>■ 製品情報</h2>
+        <div class="press-info-grid">
+          <span class="press-info-label">製品名</span>
+          <span class="press-info-value">NSP OneTab（エヌエスピー・ワンタブ）</span>
+          <span class="press-info-label">バージョン</span>
+          <span class="press-info-value">1.1.0</span>
+          <span class="press-info-label">カテゴリ</span>
+          <span class="press-info-value">Chrome拡張機能 / ツール</span>
+          <span class="press-info-label">対応言語</span>
+          <span class="press-info-value">日本語・英語</span>
+          <span class="press-info-label">価格</span>
+          <span class="press-info-value">完全無料（全機能・制限なし）</span>
+          <span class="press-info-label">プラットフォーム</span>
+          <span class="press-info-value">
+            <a href="https://chromewebstore.google.com/detail/konhegkdbiicoapggdjdjlgncoecgleg?hl=ja" target="_blank" rel="noopener"
+              style="color: var(--muted);">Google Chrome（Chrome ウェブストア）</a>
+          </span>
+          <span class="press-info-label">公開日</span>
+          <span class="press-info-value">2026年3月18日</span>
+          <span class="press-info-label">公式ページ</span>
+          <span class="press-info-value">
+            <a href="https://nsp-inc-robots.github.io/nsp-onetab/" target="_blank" rel="noopener"
+              style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-onetab/</a>
+          </span>
+        </div>
+
+        <hr class="press-divider">
+
+        <h2>■ NSP inc. について</h2>
+        <p>
+          NSP inc. は、Chrome拡張機能・WordPressプラグイン・スマートフォンアプリの企画・開発と、AI活用・ソフトウェアに関するコンサルティングを手がける日本のソフトウェア企業です。
+          NSP OneTab のほか、リンクプレビューツール「NSP Link Preview」、言語学習アシスタント「NSP LinguaShift」など複数のChrome拡張機能を展開しています。
+        </p>
+        <p>
+          企業サイト：<a href="https://nsp-inc-robots.github.io/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/</a>
+        </p>
+
+        <h2>■ 本件に関するお問い合わせ</h2>
+        <p>
+          NSP inc. お問い合わせフォーム<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener"
+            style="color: var(--white);">https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform</a>
+        </p>
+      </div>
+
+      <!-- English version -->
+      <div class="press-body" lang-en>
+        <p>
+          NSP inc. today announced the release of "NSP OneTab," a tab management extension for Google Chrome (March 18,
+          2026). With a single click, the extension consolidates all open tabs into a clean, beautiful list for visual
+          organization and saving. By reducing tab clutter and helping close unnecessary tabs, NSP OneTab can help save
+          up to 95% of memory — keeping your browser fast and your focus intact.
+        </p>
+
+        <h2>■ Background</h2>
+        <p>
+          The more we work in the browser, the more tabs we accumulate. Before you know it, you have dozens of tabs
+          open — making it hard to find what you need and slowing everything down.
+        </p>
+        <p>
+          NSP OneTab is designed to let you reset your workspace instantly: consolidate clutter into a single list and
+          restore only what you need, whenever you need it.
+        </p>
+
+        <h2>■ Key Features</h2>
+        <p><strong>1. One-Click Consolidation</strong><br>
+          Instantly turn all open tabs into a single list to clear your visual space and refocus.</p>
+
+        <p><strong>2. Premium Design</strong><br>
+          Built with NSP series' signature purple-pink gradient and glassmorphism for a modern, premium experience.</p>
+
+        <p><strong>3. Memory Optimization</strong><br>
+          Close unnecessary tabs to lighten your browser and help save up to 95% of memory.</p>
+
+        <p><strong>4. Easy Restore</strong><br>
+          Restore tabs selectively via drag & drop, or restore everything at once.</p>
+
+        <h2>■ Pricing</h2>
+        <p>
+          Completely free. All features included with no restrictions or paid tiers.
+        </p>
+
+        <h2>■ Availability</h2>
+        <p>
+          Google Chrome (available now on the Chrome Web Store)<br>
+          Store: <a href="https://chromewebstore.google.com/detail/konhegkdbiicoapggdjdjlgncoecgleg?hl=ja" target="_blank"
+            rel="noopener" style="color: var(--white);">Get on Chrome Web Store</a><br>
+          Official page: <a href="https://nsp-inc-robots.github.io/nsp-onetab/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-onetab/</a>
+        </p>
+
+        <hr class="press-divider">
+
+        <h2>■ Product Details</h2>
+        <div class="press-info-grid">
+          <span class="press-info-label">Product</span>
+          <span class="press-info-value">NSP OneTab</span>
+          <span class="press-info-label">Version</span>
+          <span class="press-info-value">1.1.0</span>
+          <span class="press-info-label">Category</span>
+          <span class="press-info-value">Chrome Extension / Tools</span>
+          <span class="press-info-label">Languages</span>
+          <span class="press-info-value">Japanese &amp; English</span>
+          <span class="press-info-label">Price</span>
+          <span class="press-info-value">Free — all features, no restrictions</span>
+          <span class="press-info-label">Platform</span>
+          <span class="press-info-value">
+            <a href="https://chromewebstore.google.com/detail/konhegkdbiicoapggdjdjlgncoecgleg?hl=ja" target="_blank"
+              rel="noopener" style="color: var(--muted);">Google Chrome (Chrome Web Store)</a>
+          </span>
+          <span class="press-info-label">Release Date</span>
+          <span class="press-info-value">March 18, 2026</span>
+          <span class="press-info-label">Official Page</span>
+          <span class="press-info-value">
+            <a href="https://nsp-inc-robots.github.io/nsp-onetab/" target="_blank" rel="noopener"
+              style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-onetab/</a>
+          </span>
+        </div>
+
+        <hr class="press-divider">
+
+        <h2>■ About NSP inc.</h2>
+        <p>
+          NSP inc. is a Japanese software company specializing in Chrome extensions, WordPress plugins, and smartphone
+          apps, as well as AI and software consulting. In addition to NSP OneTab, the company offers NSP Link Preview
+          and NSP LinguaShift.
+        </p>
+        <p>
+          Website: <a href="https://nsp-inc-robots.github.io/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/</a>
+        </p>
+
+        <h2>■ Press Contact</h2>
+        <p>
+          NSP inc. Contact Form<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener"
+            style="color: var(--white);">https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform</a>
+        </p>
+      </div>
+
+      <div style="margin-top: 80px;">
+        <a href="index.html" class="press-back">&larr; <span lang-jp>プレスリリース一覧に戻る</span><span lang-en>Back to all press releases</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+        <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
