@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSP inc.、Chrome拡張機能「NSP Link Preview」を公開 — プレスリリース</title>
+  <meta name="description" content="NSP inc.は、リンク先を新しいタブで開かず、その場で素早く確認できるChrome拡張機能「NSP Link Preview」の公開を発表。Alt+クリックやホバー、ドラッグ＆ドロップで、ページを離れずにリンク先をプレビューできます。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NSP inc.、Chrome拡張機能「NSP Link Preview」を公開 — プレスリリース">
+  <meta property="og:description" content="Alt+クリックやホバーで、リンク先をその場でプレビューできる新しいブラウジング体験を提供するChrome拡張機能。すべての機能を無料で利用可能。">
+  <meta property="og:site_name" content="NSP inc.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/lang-manager.js" defer></script>
+  <script src="../assets/animations.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
+  <style>
+    .press-hero {
+      padding: calc(var(--header-h) + 140px) 0 100px;
+    }
+
+    .press-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .press-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid var(--border-mid);
+      padding: 5px 14px;
+      border-radius: var(--r-pill);
+    }
+
+    .press-date {
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .press-title {
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.22;
+      margin-bottom: 64px;
+      color: var(--white);
+      max-width: 900px;
+    }
+
+    .press-body {
+      max-width: 760px;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--muted);
+      letter-spacing: 0.005em;
+    }
+
+    .press-body h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      padding-top: 56px;
+      margin-top: 0;
+      margin-bottom: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .press-body h2:first-of-type {
+      margin-top: 48px;
+    }
+
+    .press-body p {
+      margin-bottom: 22px;
+    }
+
+    .press-body ul {
+      padding-left: 20px;
+      margin-bottom: 22px;
+    }
+
+    .press-body ul li {
+      margin-bottom: 10px;
+      line-height: 1.9;
+    }
+
+    .press-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 64px 0;
+    }
+
+    .press-info-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 16px 40px;
+      font-size: 13px;
+      background: var(--card-bg);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow);
+      padding: 36px 44px;
+    }
+
+    .press-info-label {
+      color: var(--dim);
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .press-info-value {
+      color: var(--white);
+      line-height: 1.8;
+    }
+
+    .press-back {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+      transition: opacity 0.25s ease;
+    }
+
+    .press-back:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 640px) {
+      .press-hero {
+        padding: calc(var(--header-h) + 72px) 0 72px;
+      }
+
+      .press-info-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 26px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">NSP inc.</a>
+      <nav class="site-nav">
+        <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+        <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+        <a href="../index.html#products" class="nav-link" lang-jp>プロダクト</a>
+        <a href="../index.html#products" class="nav-link" lang-en>Products</a>
+        <a href="../index.html#articles" class="nav-link" lang-jp>記事・コラム</a>
+        <a href="../index.html#articles" class="nav-link" lang-en>Articles &amp; Notes</a>
+        <a href="index.html" class="nav-link" lang-jp>プレスリリース</a>
+        <a href="index.html" class="nav-link" lang-en>Press</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-jp>お問い合わせ</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-en>Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PRESS RELEASE BODY ===== -->
+  <section class="press-hero">
+    <div class="container">
+      <a href="index.html" class="press-back">&larr; <span lang-jp>プレスリリース一覧</span><span
+          lang-en>All press releases</span></a>
+
+      <div class="press-meta">
+        <span class="press-badge">Press Release</span>
+        <span class="press-date">2026年3月19日</span>
+      </div>
+
+      <h1 class="press-title" lang-jp>
+        NSP inc.、Chrome拡張機能「NSP Link Preview」を公開<br>
+        ——Alt+クリック・ホバーで、リンク先をその場でプレビューできる新体験ツール
+      </h1>
+      <h1 class="press-title" lang-en>
+        NSP inc. Launches "NSP Link Preview" Chrome Extension<br>
+        — In‑page link previews via Alt+Click and hover
+      </h1>
+
+      <div class="press-body" lang-jp>
+        <p>
+          NSP inc. は本日2026年3月19日、Google Chrome 向けリンクプレビュー拡張機能「NSP Link Preview（エヌエスピー・リンクプレビュー）」の公開を発表しました。本製品は、Alt+クリックやマウスホバー、ドラッグ＆ドロップといった直感的な操作で、リンク先ページを「いま見ているページの上」にオーバーレイ表示できるツールです。
+        </p>
+        <p>
+          検索結果やニュースサイト、ドキュメント、SNSなどで、リンクを開くたびにタブが増えたり、元のページに戻る操作に時間を取られたりする問題を軽減し、「ページを離れずに中身だけ素早く確認する」ブラウジング体験を実現します。
+          NSP Link Preview は<strong>すべての機能を制限なく、完全無料</strong>でご利用いただけます。
+        </p>
+
+        <h2>■ 開発の背景</h2>
+        <p>
+          Webブラウジングにおいて、「このリンクを開くべきかどうか」「中身を見たけれど、やっぱり戻りたい」といった小さな判断や操作が、1日の中で何十回・何百回と発生します。新しいタブを開きすぎてどこに何があるかわからなくなったり、戻る操作を繰り返したりするうちに、注意力や集中力が削られていきます。
+        </p>
+        <p>
+          NSP Link Preview は、この「リンクを開くかどうか迷う時間」と「戻る／タブ整理の手間」を減らすために生まれました。Alt+クリックやホバーなど、いつもの操作に近いジェスチャでリンク先だけを一時的に浮かび上がらせることで、<strong>「読む価値があるかどうか」を一瞬で判断し、タブや履歴を汚さずに情報収集できる</strong>状態を目指しています。
+        </p>
+
+        <h2>■ 主な機能</h2>
+
+        <p><strong>1. Alt+クリック・ホバー・ドラッグ＆ドロップで即プレビュー</strong><br>
+          検索結果やニュースサイト、SNSのリンク上で Alt+クリックすると、その場にプレビューウィンドウが立ち上がります。また、マウスホバーで小さなバルーン表示、リンクをドラッグ＆ドロップして任意の位置にプレビューを固定することもできます。
+        </p>
+
+        <p><strong>2. 自由自在なウィンドウ操作</strong><br>
+          プレビューウィンドウはドラッグで移動でき、リサイズも自在です。不透明度を調整して背面のページを薄く透かしながら閲覧することも可能です。複数のプレビューを同時に並べて比較するといった使い方にも対応しています。
+        </p>
+
+        <p><strong>3. ナビゲーション維持（ページ移動してもプレビューを保持）</strong><br>
+          元のタブで別のページに移動しても、プレビューウィンドウを維持できます。これにより、「比較用に開いたページを横に置いたまま、別の検索結果を辿る」といった調査スタイルが取りやすくなります。
+        </p>
+
+        <p><strong>4. 再帰プレビュー &amp; クイック検索</strong><br>
+          プレビュー内のリンクもさらにプレビューできます。また、テキスト選択からの右クリックメニュー経由で、選択範囲をすぐに Google 検索・翻訳ページで開くといったクイックアクションにも対応します（リンク先は別タブで開きます）。
+        </p>
+
+        <p><strong>5. マルチウィンドウ対応</strong><br>
+          複数のブラウザウィンドウを開いている場合でも、それぞれのウィンドウ内で NSP Link Preview を利用できます。作業用ウィンドウとリサーチ用ウィンドウを分けるワークスタイルとも相性が良い設計です。
+        </p>
+
+        <p><strong>6. サイトごとの有効／無効切り替え</strong><br>
+          プレビューが不要なサイトや、既存のUIとの相性がよくないサイトについては、ドメイン単位で NSP Link Preview を無効化できます。業務システムや特定サービスでは機能をオフにし、普段のブラウジングだけで使う、といった運用が可能です。
+        </p>
+
+        <h2>■ 安心して使える設計</h2>
+        <p>
+          NSP Link Preview は、ユーザーの閲覧内容や個人情報を外部サーバーに送信せず、ブラウザ内で完結して動作する設計を採用しています。広告表示やトラッキングといった機能は一切持たず、あくまで「ブラウジング体験を純粋に高める」ことに特化しています。
+        </p>
+
+        <h2>■ 価格・提供形態</h2>
+        <p>
+          完全無料。全機能に制限なし。サブスクリプションや追加課金、機能制限付きの有料プラン等は設けていません。
+        </p>
+
+        <h2>■ 提供プラットフォーム</h2>
+        <p>
+          Google Chrome（Chrome ウェブストアにて公開中）<br>
+          ストア：<a href="https://chromewebstore.google.com/detail/ffecnobdoegiocplhnpgnpflcibbhpeb" target="_blank"
+            rel="noopener" style="color: var(--white);">Chrome ウェブストアで入手</a><br>
+          公式ページ：<a href="https://nsp-inc-robots.github.io/nsp-link-preview/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-link-preview/</a>
+        </p>
+
+        <hr class="press-divider">
+
+        <h2>■ 製品情報</h2>
+        <div class="press-info-grid">
+          <span class="press-info-label">製品名</span>
+          <span class="press-info-value">NSP Link Preview（エヌエスピー・リンクプレビュー）</span>
+          <span class="press-info-label">バージョン</span>
+          <span class="press-info-value">1.1.1</span>
+          <span class="press-info-label">カテゴリ</span>
+          <span class="press-info-value">Chrome拡張機能 / ツール</span>
+          <span class="press-info-label">対応言語</span>
+          <span class="press-info-value">日本語・英語</span>
+          <span class="press-info-label">価格</span>
+          <span class="press-info-value">完全無料（全機能・制限なし）</span>
+          <span class="press-info-label">プラットフォーム</span>
+          <span class="press-info-value">
+            <a href="https://chromewebstore.google.com/detail/ffecnobdoegiocplhnpgnpflcibbhpeb" target="_blank"
+              rel="noopener" style="color: var(--muted);">Google Chrome（Chrome ウェブストア）</a>
+          </span>
+          <span class="press-info-label">公開日</span>
+          <span class="press-info-value">2026年3月19日</span>
+          <span class="press-info-label">公式ページ</span>
+          <span class="press-info-value">
+            <a href="https://nsp-inc-robots.github.io/nsp-link-preview/" target="_blank" rel="noopener"
+              style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-link-preview/</a>
+          </span>
+        </div>
+
+        <hr class="press-divider">
+
+        <h2>■ NSP inc. について</h2>
+        <p>
+          NSP inc. は、Chrome拡張機能・WordPressプラグイン・スマートフォンアプリの企画・開発と、AI活用・ソフトウェアに関するコンサルティングを手がける日本のソフトウェア企業です。NSP Link Preview のほか、タブ整理ツール「NSP OneTab」、言語学習アシスタント「NSP LinguaShift」など、複数のChrome拡張機能を展開しています。
+        </p>
+        <p>
+          企業サイト：<a href="https://nsp-inc-robots.github.io/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/</a>
+        </p>
+
+        <h2>■ 本件に関するお問い合わせ</h2>
+        <p>
+          NSP inc. お問い合わせフォーム<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener"
+            style="color: var(--white);">https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform</a>
+        </p>
+      </div>
+
+      <!-- English version -->
+      <div class="press-body" lang-en>
+        <p>
+          NSP inc. today announced the release of "NSP Link Preview," a Chrome extension that lets users preview links
+          in‑page via Alt+Click, hover, or drag‑and‑drop. Instead of opening new tabs or repeatedly hitting the back
+          button, users can quickly inspect the contents of any link on top of the current page — keeping their browsing
+          flow intact and preventing tab clutter.
+        </p>
+
+        <h2>■ Background</h2>
+        <p>
+          In everyday browsing, we constantly decide whether a link is worth opening and often end up with a mess of
+          tabs or a long trail of back/forward navigation. This chips away at focus and makes it harder to keep track of
+          what really matters.
+        </p>
+        <p>
+          NSP Link Preview is designed to reduce this friction. By letting users temporarily "float" the destination page
+          on top of the current one, it makes it easy to decide whether a link is worth a deeper read — without polluting
+          history or opening yet another tab.
+        </p>
+
+        <h2>■ Key Features</h2>
+
+        <p><strong>1. Instant in‑page previews</strong><br>
+          Preview any link with Alt+Click, subtle hover balloons, or by dragging and dropping a link to where you want
+          the window to appear.
+        </p>
+
+        <p><strong>2. Full window control</strong><br>
+          Move, resize, and adjust the opacity of preview windows. Compare multiple pages side by side without losing
+          your place.
+        </p>
+
+        <p><strong>3. Navigation persistence</strong><br>
+          Keep preview windows open even as you navigate to different pages in the original tab, enabling research and
+          comparison workflows.
+        </p>
+
+        <p><strong>4. Recursive previews &amp; quick actions</strong><br>
+          Preview links inside previews, and use context menu actions on selected text to quickly search or open
+          translation pages in a separate tab.
+        </p>
+
+        <p><strong>5. Multi‑window and per‑site control</strong><br>
+          Works across multiple browser windows and lets you disable previews on specific sites when needed, such as
+          internal systems or tools.
+        </p>
+
+        <h2>■ Pricing</h2>
+        <p>
+          Completely free. All features included with no restrictions or paid tiers.
+        </p>
+
+        <h2>■ Availability</h2>
+        <p>
+          Google Chrome (available now on the Chrome Web Store)<br>
+          Store: <a href="https://chromewebstore.google.com/detail/ffecnobdoegiocplhnpgnpflcibbhpeb" target="_blank"
+            rel="noopener" style="color: var(--white);">Get on Chrome Web Store</a><br>
+          Official page: <a href="https://nsp-inc-robots.github.io/nsp-link-preview/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-link-preview/</a>
+        </p>
+
+        <hr class="press-divider">
+
+        <h2>■ Product Details</h2>
+        <div class="press-info-grid">
+          <span class="press-info-label">Product</span>
+          <span class="press-info-value">NSP Link Preview</span>
+          <span class="press-info-label">Version</span>
+          <span class="press-info-value">1.1.1</span>
+          <span class="press-info-label">Category</span>
+          <span class="press-info-value">Chrome Extension / Tools</span>
+          <span class="press-info-label">Languages</span>
+          <span class="press-info-value">Japanese &amp; English</span>
+          <span class="press-info-label">Price</span>
+          <span class="press-info-value">Free — all features, no restrictions</span>
+          <span class="press-info-label">Platform</span>
+          <span class="press-info-value">
+            <a href="https://chromewebstore.google.com/detail/ffecnobdoegiocplhnpgnpflcibbhpeb" target="_blank"
+              rel="noopener" style="color: var(--muted);">Google Chrome (Chrome Web Store)</a>
+          </span>
+          <span class="press-info-label">Release Date</span>
+          <span class="press-info-value">March 19, 2026</span>
+          <span class="press-info-label">Official Page</span>
+          <span class="press-info-value">
+            <a href="https://nsp-inc-robots.github.io/nsp-link-preview/" target="_blank" rel="noopener"
+              style="color: var(--white);">https://nsp-inc-robots.github.io/nsp-link-preview/</a>
+          </span>
+        </div>
+
+        <hr class="press-divider">
+
+        <h2>■ About NSP inc.</h2>
+        <p>
+          NSP inc. is a Japanese software company specializing in Chrome extensions, WordPress plugins, and smartphone
+          apps, as well as AI and software consulting. In addition to NSP Link Preview, the company offers NSP OneTab and
+          NSP LinguaShift.
+        </p>
+        <p>
+          Website: <a href="https://nsp-inc-robots.github.io/" target="_blank" rel="noopener"
+            style="color: var(--white);">https://nsp-inc-robots.github.io/</a>
+        </p>
+
+        <h2>■ Press Contact</h2>
+        <p>
+          NSP inc. Contact Form<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener"
+            style="color: var(--white);">https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform</a>
+        </p>
+      </div>
+
+      <div style="margin-top: 80px;">
+        <a href="index.html" class="press-back">&larr; <span lang-jp>プレスリリース一覧に戻る</span><span
+            lang-en>Back to all press releases</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+        <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
