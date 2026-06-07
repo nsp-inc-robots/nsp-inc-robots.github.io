@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18HKD9YF0V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-18HKD9YF0V');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — NSP inc.</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/lang-manager.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+    /* ---- Success Hero ---- */
+    .success-hero {
+      padding: calc(var(--header-h) + 100px) 0 80px;
+    }
+
+    /* ---- Step List ---- */
+    .step-list { list-style: none; }
+
+    .step-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 28px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .step-row:first-child { border-top: 1px solid var(--border); }
+
+    .step-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+      padding-top: 5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.78;
+      max-width: 620px;
+    }
+
+    code {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+      font-size: 0.85em;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .success-hero { padding-top: calc(var(--header-h) + 56px); padding-bottom: 56px; }
+      .step-row { padding: 32px 0; gap: 0 16px; grid-template-columns: 40px 1fr; }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">NSP inc.</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SUCCESS HERO ===== -->
+  <section class="success-hero">
+    <div class="container">
+      <p class="section-eyebrow" lang-en>Purchase complete</p>
+      <p class="section-eyebrow" lang-jp>購入完了</p>
+
+      <h1 class="display-text" style="font-size: clamp(2.8rem, 5vw, 4.5rem);">
+        <span lang-en>Thank you!</span>
+        <span lang-jp>ありがとう<br>ございます！</span>
+      </h1>
+
+      <p class="lead-text" lang-en>
+        Your payment was successful. We've sent your license key
+        to your email address. Follow the steps below to activate Pro.
+      </p>
+      <p class="lead-text" lang-jp>
+        お支払いが完了しました。ライセンスキーをご登録のメールアドレスにお送りしました。
+        下記の手順でPro版を有効化してください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== ACTIVATION STEPS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">&mdash;</span>
+        <span class="section-label" lang-en>How to activate Pro</span>
+        <span class="section-label" lang-jp>Pro版の有効化手順</span>
+      </div>
+
+      <ul class="step-list">
+
+        <li class="step-row">
+          <span class="step-num">01</span>
+          <div>
+            <p class="step-title" lang-en>Check your email</p>
+            <p class="step-title" lang-jp>メールを確認する</p>
+            <p class="step-desc" lang-en>
+              Polar.sh has sent you an email containing your unique license key
+              (it starts with <code>NSP-</code>). Copy that key.
+            </p>
+            <p class="step-desc" lang-jp>
+              Polar.sh から、<code>NSP-</code> で始まる専用ライセンスキーがメールで届きます。
+              そのキーをコピーしてください。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-row">
+          <span class="step-num">02</span>
+          <div>
+            <p class="step-title" lang-en>Open the extension popup</p>
+            <p class="step-title" lang-jp>拡張機能のポップアップを開く</p>
+            <p class="step-desc" lang-en>
+              Click the NSP Link Preview icon in your Chrome toolbar to open
+              the settings popup.
+            </p>
+            <p class="step-desc" lang-jp>
+              Chrome ツールバーにある NSP Link Preview のアイコンをクリックして
+              設定ポップアップを開きます。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-row">
+          <span class="step-num">03</span>
+          <div>
+            <p class="step-title" lang-en>Enter your key &amp; unlock</p>
+            <p class="step-title" lang-jp>キーを入力して解除</p>
+            <p class="step-desc" lang-en>
+              Paste your key into the "Enter License Key" field and click
+              <strong style="color: var(--white);">Unlock Pro</strong>.
+              Unlimited previews are now active. You're all set!
+            </p>
+            <p class="step-desc" lang-jp>
+              "Enter License Key" 欄にキーを貼り付け、
+              <strong style="color: var(--white);">Unlock Pro</strong> をクリックして完了です。
+              プレビュー回数の制限が解除されました！
+            </p>
+          </div>
+        </li>
+
+      </ul>
+
+      <div style="margin-top: 60px;">
+        <a href="../index.html" class="btn btn-outline" lang-en>&larr; Back to NSP inc.</a>
+        <a href="../index.html" class="btn btn-outline" lang-jp>&larr; NSP inc. トップへ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+        <span class="footer-copy">
+          <span lang-en>Need help? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener" style="color: var(--muted); text-underline-offset: 3px;">Contact us</a></span>
+          <span lang-jp>サポート: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+            target="_blank" rel="noopener" style="color: var(--muted); text-underline-offset: 3px;">お問い合わせフォーム</a></span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18HKD9YF0V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-18HKD9YF0V');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSP Link Preview — Chrome Extension</title>
+  <meta name="description" content="Preview any link with Alt+Click. Browse smarter without losing your place.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nsp-inc-robots.github.io/nsp-link-preview/">
+  <meta property="og:title" content="NSP Link Preview — Chrome Extension">
+  <meta property="og:description" content="Preview any link with Alt+Click. Browse smarter without losing your place.">
+  <meta property="og:image" content="https://nsp-inc-robots.github.io/assets/nsp-link-preview/ss1.png">
+  <meta property="og:site_name" content="NSP inc.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NSP Link Preview — Chrome Extension">
+  <meta name="twitter:description" content="Preview any link with Alt+Click. Browse smarter without losing your place.">
+  <meta name="twitter:image" content="https://nsp-inc-robots.github.io/assets/nsp-link-preview/ss1.png">
+  <link rel="icon" href="../assets/nsp-link-preview/icon128.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/lang-manager.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
+
+  <style>
+    /* ---- Product Hero ---- */
+    .product-hero {
+      padding: calc(var(--header-h) + 120px) 0 88px;
+    }
+
+    .display-text--hero {
+      font-size: clamp(2.5rem, 6vw, 4.2rem) !important;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 32px;
+      word-break: keep-all;
+    }
+
+    /* ---- Carousel ---- */
+    .carousel-section {
+      position: relative;
+      margin-top: 48px;
+      padding-bottom: 100px;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    .carousel-container {
+      position: relative;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #000;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      width: 100%;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .carousel-nav {
+      margin-top: 24px;
+      /* Space between carousel and thumbnails */
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .thumbnail-item {
+      width: 80px;
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.5;
+      background: #000;
+    }
+
+    .thumbnail-item:hover {
+      opacity: 0.8;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .thumbnail-item.active {
+      opacity: 1;
+      border-color: var(--white);
+      transform: scale(1.05);
+    }
+
+    .thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ffffff !important;
+      /* Force white base */
+      border: none !important;
+      color: #000000 !important;
+      /* Force black arrow */
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .carousel-btn:hover {
+      background: #f8f8f8;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev {
+      left: 24px;
+    }
+
+    .carousel-btn.next {
+      right: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .carousel-btn {
+        display: none;
+      }
+
+      .thumbnail-item {
+        width: 60px;
+      }
+
+      .carousel-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    /* ---- Feature List ---- */
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 28px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .feature-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .feature-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+      padding-top: 5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.78;
+      max-width: 640px;
+    }
+
+    /* ---- Pricing ---- */
+    .pricing-box {
+      border: 1px solid var(--border);
+      padding: 72px 60px;
+      text-align: center;
+    }
+
+    .pricing-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .pricing-amount {
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .pricing-note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .pricing-security {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    /* ---- Image Placeholders ---- */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--border);
+      border: 1px dashed var(--border-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dim);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 24px;
+      border-radius: 4px;
+    }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .use-case-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .use-case-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .use-case-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    @media (max-width: 960px) {
+      .use-case-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .product-hero {
+        padding-top: calc(var(--header-h) + 52px);
+        padding-bottom: 56px;
+      }
+
+      .pricing-box {
+        padding: 48px 24px;
+      }
+
+      .feature-row {
+        padding: 32px 0;
+        gap: 0 16px;
+        grid-template-columns: 40px 1fr;
+      }
+
+      .feature-desc {
+        max-width: 100%;
+      }
+    }
+
+    /* ---- Browser Mockup Component ---- */
+    .browser-frame {
+      margin-top: 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      user-select: none;
+    }
+
+    .bf-bar {
+      background: #e8e8e8;
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .bf-dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .bf-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .bf-dot-r {
+      background: #ff5f57;
+    }
+
+    .bf-dot-y {
+      background: #febc2e;
+    }
+
+    .bf-dot-g {
+      background: #28c840;
+    }
+
+    .bf-url {
+      flex: 1;
+      background: #fff;
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 10px;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bf-body {
+      padding: 16px 20px;
+      background: #fafafa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Simulated search results */
+    .bf-result {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .bf-result-url {
+      font-size: 9px;
+      color: #1a7f37;
+      margin-bottom: 3px;
+    }
+
+    .bf-result-title {
+      font-size: 13px;
+      color: #1a0dab;
+      margin-bottom: 3px;
+    }
+
+    .bf-result-desc {
+      font-size: 10px;
+      color: #4d5156;
+      line-height: 1.5;
+    }
+
+    /* Simulated doc page */
+    .bf-doc-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .bf-doc-line {
+      height: 6px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .bf-doc-line.w90 {
+      width: 90%;
+    }
+
+    .bf-doc-line.w75 {
+      width: 75%;
+    }
+
+    .bf-doc-line.w55 {
+      width: 55%;
+    }
+
+    .bf-doc-ref {
+      display: inline-block;
+      font-size: 11px;
+      color: #1a0dab;
+      margin-top: 8px;
+    }
+
+    /* Simulated product list */
+    .bf-product-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      align-items: flex-start;
+    }
+
+    .bf-product-img {
+      width: 36px;
+      height: 36px;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .bf-product-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #1a0dab;
+      margin-bottom: 3px;
+    }
+
+    .bf-product-price {
+      font-size: 12px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .bf-product-note {
+      font-size: 9px;
+      color: #777;
+    }
+
+    /* NSP Preview Popup */
+    .nsp-fw-popup {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 52%;
+      background: rgba(14, 14, 18, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .nsp-fw-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .nsp-fw-url {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: monospace;
+    }
+
+    .nsp-fw-btns {
+      display: flex;
+      gap: 5px;
+    }
+
+    .nsp-fw-btn {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      padding: 1px 6px;
+      cursor: default;
+    }
+
+    .nsp-fw-content {
+      padding: 12px 14px;
+    }
+
+    .nsp-fw-site-name {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 7px;
+    }
+
+    .nsp-fw-headline {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .nsp-fw-line {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .nsp-fw-line.w90 {
+      width: 90%;
+    }
+
+    .nsp-fw-line.w80 {
+      width: 80%;
+    }
+
+    .nsp-fw-line.w65 {
+      width: 65%;
+    }
+
+    .nsp-fw-spacer {
+      height: 8px;
+    }
+
+    /* Activation hint badge */
+    .nsp-kbd-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 9px;
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    .nsp-kbd-badge kbd {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 8px;
+      font-family: monospace;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (max-width: 960px) {
+      .nsp-fw-popup {
+        width: 60%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">NSP inc.</a>
+      <nav class="site-nav">
+        <a href="../index.html#services" class="nav-link" lang-jp>サービス</a>
+        <a href="../index.html#services" class="nav-link" lang-en>Services</a>
+        <a href="../index.html#products" class="nav-link" lang-jp>プロダクト</a>
+        <a href="../index.html#products" class="nav-link" lang-en>Products</a>
+        <a href="../index.html#articles" class="nav-link" lang-jp>記事・コラム</a>
+        <a href="../index.html#articles" class="nav-link" lang-en>Articles &amp; Notes</a>
+        <a href="../press/index.html" class="nav-link" lang-jp>プレスリリース</a>
+        <a href="../press/index.html" class="nav-link" lang-en>Press</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-jp>お問い合わせ</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf5hfS4cyxymhegQIJrdfiqozXPaEfz_dU5vxzWRrI58rqZQ/viewform"
+          class="nav-link" lang-en>Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PRODUCT HERO ===== -->
+  <section class="product-hero">
+    <div class="container">
+      <p class="section-eyebrow" lang-en>Chrome Extension &middot; Free</p>
+      <p class="section-eyebrow" lang-jp>Chrome拡張機能 &middot; 無料</p>
+
+      <img src="../assets/nsp-link-preview/icon128.png" alt="NSP Link Preview Icon"
+        style="width: 80px; height: 80px; margin-bottom: 32px; border-radius: 20px;">
+
+      <h1 class="display-text--hero" lang-en>Escape the Tab Clutter.</h1>
+      <h1 class="display-text--hero" lang-jp style="line-height: 1.1; margin-bottom: 32px;">
+        <div>タブ移動のストレスから、</div>
+        <div>あなたを解放する。</div>
+      </h1>
+
+      <p class="lead-text" lang-en>
+        NSP Link Preview eliminates the "to click or not to click" dilemma.
+        Instantly preview any link without losing your place. Completely free.
+      </p>
+      <p class="lead-text" lang-jp>
+        NSP リンクプレビューは、リンクを「開くか、開かないか」を迷う時間をゼロにするChrome拡張です。
+        現在のページを維持したまま、中身を瞬時に確認できます。Freeでご利用いただけます。
+      </p>
+
+      <a href="https://chromewebstore.google.com/detail/ffecnobdoegiocplhnpgnpflcibbhpeb"
+         class="btn btn-outline" target="_blank" rel="noopener">
+        <span lang-en>Get on Chrome Web Store</span>
+        <span lang-jp>Chrome ウェブストアで入手</span>
+      </a>
+
+      <!-- Carousel Section -->
+      <div class="carousel-section">
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss1.png" alt="NSP Link Preview Screenshot 1" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss2.png" alt="NSP Link Preview Screenshot 2" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss3.png" alt="NSP Link Preview Screenshot 3" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss4.png" alt="NSP Link Preview Screenshot 4" class="carousel-img">
+            </div>
+            <div class="carousel-slide">
+              <img src="../assets/nsp-link-preview/ss5.png" alt="NSP Link Preview Screenshot 5" class="carousel-img">
+            </div>
+          </div>
+
+          <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&larr;</button>
+          <button class="carousel-btn next" id="nextBtn" aria-label="Next">&rarr;</button>
+        </div>
+
+        <!-- Thumbnails Outside -->
+        <div class="carousel-nav" id="carouselNav">
+          <div class="thumbnail-item active" data-index="0">
+            <img src="../assets/nsp-link-preview/ss1.png" alt="Thumb 1" class="thumbnail-img">
+          </div>
+          <div class="thumbnail-item" data-index="1">
+            <img src="../assets/nsp-link-preview/ss2.png" alt="Thumb 2" class="thumbnail-img">
+          </div>
+          <div class="thumbnail-item" data-index="2">
+            <img src="../assets/nsp-link-preview/ss3.png" alt="Thumb 3" class="thumbnail-img">
+          </div>
+          <div class="thumbnail-item" data-index="3">
+            <img src="../assets/nsp-link-preview/ss4.png" alt="Thumb 4" class="thumbnail-img">
+          </div>
+          <div class="thumbnail-item" data-index="4">
+            <img src="../assets/nsp-link-preview/ss5.png" alt="Thumb 5" class="thumbnail-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Carousel Logic
+    const track = document.getElementById('carouselTrack');
+    const thumbnails = document.querySelectorAll('.thumbnail-item');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      if (index < 0) index = thumbnails.length - 1;
+      if (index >= thumbnails.length) index = 0;
+
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+    nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const index = parseInt(thumb.getAttribute('data-index'));
+        updateCarousel(index);
+      });
+    });
+  </script>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-label" lang-en>Features</span>
+        <span class="section-label" lang-jp>機能</span>
+      </div>
+
+      <ul class="feature-list">
+
+        <li class="feature-row">
+          <span class="feature-num">01</span>
+          <div>
+            <p class="feature-title" lang-en>Multiple Activation Methods</p>
+            <p class="feature-title" lang-jp>多彩なプレビュー起動</p>
+            <p class="feature-desc" lang-en>
+              Instant Click (Alt+Click), Hover-Balloon for subtle peeking, or Drag-and-Drop to place the window exactly
+              where you need it.
+            </p>
+            <p class="feature-desc" lang-jp>
+              Alt+クリックでの即時表示、マウスホバーでの小さな吹き出し、さらにリンクを好きな場所へドラッグ＆ドロップして配置することも可能です。
+            </p>
+          </div>
+        </li>
+
+        <li class="feature-row">
+          <span class="feature-num">02</span>
+          <div>
+            <p class="feature-title" lang-en>Total Window Control</p>
+            <p class="feature-title" lang-jp>自由自在なウィンドウ操作</p>
+            <p class="feature-desc" lang-en>
+              Intuitive dragging, smooth resizing, and smart pinning. Adjust opacity to see the content underneath
+              without losing focus.
+            </p>
+            <p class="feature-desc" lang-jp>
+              直感的なドラッグ移動、スムースなリサイズ、そしてスマートなピン留め。不透明度を調整して背景を透かし見ることもできます。
+            </p>
+          </div>
+        </li>
+
+        <li class="feature-row">
+          <span class="feature-num">03</span>
+          <div>
+            <p class="feature-title" lang-en>Navigation Persistence</p>
+            <p class="feature-title" lang-jp>ナビゲーション維持</p>
+            <p class="feature-desc" lang-en>
+              Your previews stay open even when you navigate to a different page. Carry your gathered information with
+              you across the web.
+            </p>
+            <p class="feature-desc" lang-jp>
+              ページを移動しても、開いているプレビュー窓が消えずに残ります。情報を持ち運びながらの調査が可能です。
+            </p>
+          </div>
+        </li>
+
+        <li class="feature-row">
+          <span class="feature-num">04</span>
+          <div>
+            <p class="feature-title" lang-en>Recursive & Quick Search</p>
+            <p class="feature-title" lang-jp>再帰プレビュー ＆ クイック検索</p>
+            <p class="feature-desc" lang-en>
+              Preview links inside previews for deep research. Use the right-click menu to instantly Google search or
+              translate selected text.
+            </p>
+            <p class="feature-desc" lang-jp>
+              プレビュー窓の中のリンクをさらにプレビュー可能。右クリックメニューからの即座な検索や翻訳（別タブ）もサポートします。
+            </p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== USE CASES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-label" lang-en>Use Cases</span>
+        <span class="section-label" lang-jp>利用シーン</span>
+      </div>
+
+      <div class="use-case-grid">
+        <div class="use-case-item">
+          <p class="use-case-title" lang-en>Search & SNS</p>
+          <p class="use-case-title" lang-jp>Google検索やSNSで</p>
+          <p class="use-case-desc" lang-en>
+            Check search results or social media links without leaving your timeline.
+            Stay focused on your original search.
+          </p>
+          <p class="use-case-desc" lang-jp>
+            検索結果やSNSのタイムラインから離れずに、リンク先の内容を素早くチェック。
+            元の探索フローを維持できます。
+          </p>
+          <div class="browser-frame">
+            <div class="bf-bar">
+              <div class="bf-dots">
+                <div class="bf-dot bf-dot-r"></div>
+                <div class="bf-dot bf-dot-y"></div>
+                <div class="bf-dot bf-dot-g"></div>
+              </div>
+              <div class="bf-url">google.com/search?q=best+AI+research+tools+2024</div>
+            </div>
+            <div class="bf-body">
+              <div class="bf-result">
+                <div class="bf-result-url">aitools.io › reviews › 2024</div>
+                <div class="bf-result-title">10 Best AI Research Tools in 2024 — Full Guide</div>
+                <div class="bf-result-desc">Boost research workflows with these AI-powered tools. Our top picks for
+                  analysts...</div>
+              </div>
+              <div class="bf-result">
+                <div class="bf-result-url">techcrunch.com › ai › tools</div>
+                <div class="bf-result-title">The AI Tools Transforming Research in 2024</div>
+                <div class="bf-result-desc">From data analysis to literature review, AI is changing how we work...</div>
+              </div>
+              <div class="bf-result">
+                <div class="bf-result-url">harvard.edu › library › research-guides</div>
+                <div class="bf-result-title">AI Tools for Academic Research — Harvard Library</div>
+                <div class="bf-result-desc">Curated guide to AI tools for academic research...</div>
+              </div>
+              <div class="nsp-fw-popup">
+                <div class="nsp-fw-bar">
+                  <span class="nsp-fw-url">aitools.io › reviews › 2024</span>
+                  <div class="nsp-fw-btns">
+                    <button class="nsp-fw-btn">📌</button>
+                    <button class="nsp-fw-btn">⊡</button>
+                    <button class="nsp-fw-btn">✕</button>
+                  </div>
+                </div>
+                <div class="nsp-fw-content">
+                  <div class="nsp-fw-site-name">AI Tools Review</div>
+                  <div class="nsp-fw-headline">10 Best AI Research Tools in 2024 — Full Guide</div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w90"></div>
+                  <div class="nsp-fw-line w80"></div>
+                  <div class="nsp-fw-spacer"></div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w65"></div>
+                </div>
+              </div>
+              <div class="nsp-kbd-badge"><kbd>Alt</kbd> + Click</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="use-case-item">
+          <p class="use-case-title" lang-en>Reading Documentation</p>
+          <p class="use-case-title" lang-jp>ドキュメント閲覧中に</p>
+          <p class="use-case-desc" lang-en>
+            Open references or related links in a small window while continuing to read the main document.
+          </p>
+          <p class="use-case-desc" lang-jp>
+            参考文献や関連リンクを小窓で開きながら、元の文書を読み進めることができます。
+          </p>
+          <div class="browser-frame">
+            <div class="bf-bar">
+              <div class="bf-dots">
+                <div class="bf-dot bf-dot-r"></div>
+                <div class="bf-dot bf-dot-y"></div>
+                <div class="bf-dot bf-dot-g"></div>
+              </div>
+              <div class="bf-url">developer.mozilla.org › Web › API › fetch</div>
+            </div>
+            <div class="bf-body">
+              <div class="bf-doc-title">Fetch API — Web APIs | MDN</div>
+              <div class="bf-doc-line"></div>
+              <div class="bf-doc-line w90"></div>
+              <div class="bf-doc-line w75"></div>
+              <div class="bf-doc-line w55"></div>
+              <span class="bf-doc-ref">→ See also: XMLHttpRequest</span>
+              <div class="nsp-fw-popup">
+                <div class="nsp-fw-bar">
+                  <span class="nsp-fw-url">developer.mozilla.org › XMLHttpRequest</span>
+                  <div class="nsp-fw-btns">
+                    <button class="nsp-fw-btn">📌</button>
+                    <button class="nsp-fw-btn">⊡</button>
+                    <button class="nsp-fw-btn">✕</button>
+                  </div>
+                </div>
+                <div class="nsp-fw-content">
+                  <div class="nsp-fw-site-name">MDN Web Docs</div>
+                  <div class="nsp-fw-headline">XMLHttpRequest — Web APIs</div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w80"></div>
+                  <div class="nsp-fw-spacer"></div>
+                  <div class="nsp-fw-line w90"></div>
+                  <div class="nsp-fw-line w65"></div>
+                </div>
+              </div>
+              <div class="nsp-kbd-badge"><kbd>Alt</kbd> + Click</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="use-case-item">
+          <p class="use-case-title" lang-en>Shopping Comparison</p>
+          <p class="use-case-title" lang-jp>ショッピング比較</p>
+          <p class="use-case-desc" lang-en>
+            Compare product details side-by-side without opening dozens of tabs.
+            Smarter shopping decisions made easy.
+          </p>
+          <p class="use-case-desc" lang-jp>
+            商品詳細を別のタブで開かず、プレビューで並べて比較検討。
+            効率的な買い物をサポートします。
+          </p>
+          <div class="browser-frame">
+            <div class="bf-bar">
+              <div class="bf-dots">
+                <div class="bf-dot bf-dot-r"></div>
+                <div class="bf-dot bf-dot-y"></div>
+                <div class="bf-dot bf-dot-g"></div>
+              </div>
+              <div class="bf-url">amazon.com/s?k=mechanical+keyboard</div>
+            </div>
+            <div class="bf-body">
+              <div class="bf-product-item">
+                <div class="bf-product-img"></div>
+                <div>
+                  <div class="bf-product-name">Keychron K2 Wireless Keyboard</div>
+                  <div class="bf-product-price">$89.99</div>
+                  <div class="bf-product-note">★★★★☆ 4,821 reviews</div>
+                </div>
+              </div>
+              <div class="bf-product-item">
+                <div class="bf-product-img"></div>
+                <div>
+                  <div class="bf-product-name">Logitech MX Keys Mini</div>
+                  <div class="bf-product-price">$99.99</div>
+                  <div class="bf-product-note">★★★★★ 7,203 reviews</div>
+                </div>
+              </div>
+              <div class="nsp-fw-popup">
+                <div class="nsp-fw-bar">
+                  <span class="nsp-fw-url">amazon.com › Keychron-K2-Wireless</span>
+                  <div class="nsp-fw-btns">
+                    <button class="nsp-fw-btn">📌</button>
+                    <button class="nsp-fw-btn">⊡</button>
+                    <button class="nsp-fw-btn">✕</button>
+                  </div>
+                </div>
+                <div class="nsp-fw-content">
+                  <div class="nsp-fw-site-name">Amazon</div>
+                  <div class="nsp-fw-headline">Keychron K2 Wireless Mechanical Keyboard</div>
+                  <div class="nsp-fw-line w65"></div>
+                  <div class="nsp-fw-spacer"></div>
+                  <div class="nsp-fw-line"></div>
+                  <div class="nsp-fw-line w80"></div>
+                </div>
+              </div>
+              <div class="nsp-kbd-badge"><kbd>Alt</kbd> + Click</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SETTINGS & PRIVACY ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-label" lang-en>Settings & Privacy</span>
+        <span class="section-label" lang-jp>設定とプライバシー</span>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item">
+          <h2 class="service-name" lang-en>Flexible Customization</h2>
+          <h2 class="service-name" lang-jp>自分好みに最適化</h2>
+          <p class="service-desc" lang-en>
+            Customizable via Side Panel: Activation keys (Alt/Ctrl/Shift), hover sensitivity, window opacity, initial
+            size/position, and domain blacklist.
+          </p>
+          <p class="service-desc" lang-jp>
+            サイドパネルから自在に調整：起動キー（Alt/Ctrl/Shift）、ホバー感度、ウィンドウの不透明度、初期サイズ・位置、ドメイン除外リスト。
+          </p>
+        </div>
+
+        <div class="service-item">
+          <h2 class="service-name" lang-en>Blacklist Feature</h2>
+          <h2 class="service-name" lang-jp>ブラックリスト機能</h2>
+          <p class="service-desc" lang-en>
+            Easily exclude specific sites where you don't want the preview to trigger.
+          </p>
+          <p class="service-desc" lang-jp>
+            プレビューを動かしたくない特定のサイトを簡単に除外設定できます。
+          </p>
+        </div>
+
+        <div class="service-item">
+          <h2 class="service-name" lang-en>Safe by Design</h2>
+          <h2 class="service-name" lang-jp>安心の設計</h2>
+          <p class="service-desc" lang-en>
+            No annoying ads or trackers. Purely focused on enhancing your browsing experience.
+          </p>
+          <p class="service-desc" lang-jp>
+            余計な広告や追跡はなく、ブラウジング体験を純粋に強化することに特化しています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <span class="section-label" lang-en>Pricing</span>
+        <span class="section-label" lang-jp>価格</span>
+      </div>
+
+      <div class="pricing-box">
+        <p class="pricing-label" lang-en>Price</p>
+        <p class="pricing-label" lang-jp>価格</p>
+
+        <p class="pricing-amount" lang-en>Free</p>
+        <p class="pricing-amount" lang-jp>無料</p>
+
+        <p class="pricing-note" lang-en>All features included. No subscriptions, no payments.</p>
+        <p class="pricing-note" lang-jp>すべての機能をご利用いただけます。サブスクや課金はありません。</p>
+
+        <a href="https://chromewebstore.google.com/detail/ffecnobdoegiocplhnpgnpflcibbhpeb"
+           class="btn btn-outline" target="_blank" rel="noopener">
+          <span lang-en>Get on Chrome Web Store</span>
+          <span lang-jp>Chrome ウェブストアで入手</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="site-logo" style="text-decoration: none;">NSP inc.</a>
+        <span class="footer-copy">&copy; 2026 NSP inc. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

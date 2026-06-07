@@ -1,0 +1,12 @@
+# Claude Code / local tooling
+.claude/
+
+# Dependencies
+node_modules/
+
+# Development artifacts (do not publish)
+temp_*.txt
+VERIFICATION.md
+package.json
+package-lock.json
+scripts/
